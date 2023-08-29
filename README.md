@@ -1,6 +1,6 @@
-# AEON IBS Portal Frontend
+# UNION IBS Portal Frontend
 
-AEON IBS Portal Frontend Project.
+UNION IBS Portal Frontend Project.
 
 ## Development environment construction
 
