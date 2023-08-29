@@ -1,0 +1,15 @@
+.p-adfs {
+  .o-whole {
+    background: #4488dd;
+  }
+
+  &__image {
+    display: block;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+.m-setting-header {
+  $root: &;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $zindex-globalnavi;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 72px;
+  padding: 0 32px;
+  background-color: $color-primary-grey;
+
+  @include sp {
+    justify-content: center;
+    height: 56px;
+    padding: 0;
+  }
+
+  &__body {
+    display: flex;
+    @include pc {
+      width: 100%;
+    }
+    #{$root}--fixed-width & {
+      @include pc {
+        min-width: 960px;
+        max-width: 960px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+
+  &--with-actions {
+    #{$root}__actions {
+      margin-left: auto;
+    }
+    @include sp {
+      justify-content: center;
+    }
+  }
+
+  &__actions {
+    .a-button {
+      box-shadow: none;
+    }
+    @include sp {
+      display: none;
+    }
+  }
+
+  .a-setting-back-button {
+    @include sp() {
+      position: absolute;
+      top: calc(50% - 10px);
+      left: 20px;
+    }
+  }
+
+  &__title {
+    font-family: $fontset-jp;
+    color: $color-text-white;
+    @include pc {
+      margin-left: 24px;
+      font-size: 24px;
+      font-weight: xd-font-weight('bold');
+      line-height: 36px;
+    }
+    @include sp {
+      font-size: 16px;
+      font-weight: xd-font-weight('medium');
+      line-height: 24px;
+    }
+  }
+}

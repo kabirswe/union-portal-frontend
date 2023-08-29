@@ -1,0 +1,19 @@
+.a-price {
+  font-family: $fontset-normal;
+  font-size: 18px;
+  font-weight: xd-font-weight('regular');
+  line-height: 24px;
+
+  &--total {
+    font-size: 24px;
+    font-weight: xd-font-weight('bold');
+  }
+
+  &__unit {
+    margin-left: 4px;
+    font-family: $fontset-jp;
+    font-size: 14px;
+    font-weight: xd-font-weight('regular');
+    line-height: 24px;
+  }
+}

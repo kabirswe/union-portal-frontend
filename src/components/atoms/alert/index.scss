@@ -1,0 +1,27 @@
+.a-alert {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 16px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background: $color-base-white;
+  border-radius: 12px;
+  box-shadow: 0 10px 16px rgba($color-base-lightgray, 40%);
+
+  &__info {
+    line-height: 20px;
+  }
+
+  &__text {
+    font-weight: xd-font-weight('bold');
+  }
+
+  &__number {
+    font-family: $fontset-normal;
+    font-size: 16px;
+    font-weight: xd-font-weight('bold');
+    color: $color-primary-red;
+  }
+}

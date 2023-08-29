@@ -1,0 +1,37 @@
+.m-notice-info-list {
+  $root: &;
+
+  padding: 0 10px;
+
+  @include sp() {
+    padding: 0 20px;
+  }
+
+  &:not(#{$root}--no-scroll) {
+    height: 220px;
+    overflow-y: auto;
+
+    @include sp() {
+      height: 88px;
+    }
+  }
+
+  &--side-by-side {
+    @include pc() {
+      padding: 0 20px;
+
+      &:not(#{$root}--no-scroll) {
+        height: 160px;
+      }
+    }
+  }
+
+  &__item {
+    list-style: none;
+    border-bottom: 1px solid $color-grey-3;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

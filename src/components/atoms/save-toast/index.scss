@@ -1,0 +1,32 @@
+.a-save-toast {
+  bottom: 0 !important;
+  z-index: $zindex-save-toast !important;
+  padding-right: env(safe-area-inset-right) !important;
+  padding-bottom: env(safe-area-inset-bottom) !important;
+  padding-left: env(safe-area-inset-left) !important;
+
+  @include pc {
+    max-width: 375px;
+  }
+
+  &__toast {
+    min-height: 125px;
+    padding: 0;
+    margin: 0;
+    background: $color-base-white;
+    border: 1px solid $color-line-gray;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  &__toast-body {
+    padding: 36px 20px 64px 20px;
+    margin: 0;
+    font-family: $fontset-jp;
+    font-size: 16px;
+    font-weight: xd-font-weight('bold');
+    line-height: 24px;
+    color: $color-text-black;
+    text-align: center;
+  }
+}

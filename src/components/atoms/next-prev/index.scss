@@ -1,0 +1,53 @@
+.a-next-prev {
+  display: flex;
+
+  &__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    &:last-child {
+      margin-left: 8px;
+    }
+
+    &:hover {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    &:active {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    &--prev {
+      .a-icon--arrow-left-gray-inactive {
+        display: none;
+      }
+    }
+
+    &--next {
+      .a-icon--arrow-right-gray-inactive {
+        display: none;
+      }
+    }
+
+    &--disabled {
+      pointer-events: none;
+      box-shadow: none;
+
+      .a-icon--arrow-left-gray-active,
+      .a-icon--arrow-right-gray-active {
+        display: none;
+      }
+
+      .a-icon--arrow-left-gray-inactive,
+      .a-icon--arrow-right-gray-inactive {
+        display: inline-block;
+      }
+    }
+  }
+}

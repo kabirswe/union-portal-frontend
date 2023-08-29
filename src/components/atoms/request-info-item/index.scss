@@ -1,0 +1,31 @@
+.a-request-info-item {
+  $root: &;
+
+  display: flex;
+  font-size: 11px;
+  line-height: 22px;
+  &__label {
+    flex: 0 0 53px;
+    width: 53px;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    #{$root}--long & {
+      flex: 0 0 65px;
+      width: 65px;
+    }
+  }
+  &__separator {
+    width: 11px;
+    margin-right: 5px;
+    text-align: center;
+  }
+  &__value {
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

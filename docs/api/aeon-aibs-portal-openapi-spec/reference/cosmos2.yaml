@@ -1,0 +1,1137 @@
+openapi: 3.0.0
+info:
+  title: AIBS Cosmos2 WebAPI
+  version: '1.0'
+  description: |
+    AIBS 従業員ポータルサイトのためのWebAPIです。
+    Webフロントエンドから呼び出します。
+
+    参考文献：
+    https://www.insight-tec.com/tech-blog/20210409_crud/
+servers:
+  - url: 'https://todo.define.domain.com/api/v1'
+    description: TODO 本番ドメインをきめる。開発標準6のp.6参照。CORSの関係で同ドメインにしたい
+  - url: 'https://todo.define.domain.dev/api/v1'
+    description: TODO 開発ドメインをきめる。開発標準6のp.6参照
+  - url: 'http://localhost:3000/api/v1'
+    description: ローカル開発時ドメイン
+paths:
+  '/employees/{employee-code}':
+    parameters:
+      - name: employee-code
+        in: path
+        required: true
+        schema:
+          type: string
+          minLength: 10
+          maxLength: 10
+        description: 社員コード
+    get:
+      summary: 従業員情報取得
+      tags:
+        - employee
+      responses:
+        '200':
+          $ref: '#/components/responses/Employee'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+        '404':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: get-employees-employee-code
+      description: |-
+        機能概要：
+        利用者の情報をもとにして、従業員の情報（LDAP-M保持情報）を取得する。
+
+        処理概要：
+        従業員番号を受け取り、従業員マスタ（LDAP-Mより連携される情報）から必要な属性を抽出し、応答電文の形式に整形し返答する。
+  /public/bulletin-boards:
+    get:
+      summary: 掲示板記事一覧取得(ログイン前)
+      responses:
+        '200':
+          $ref: '#/components/responses/BulletinBoardsList'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: public-get-bulletin-boards
+      parameters:
+        - $ref: '#/components/parameters/group-code'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      description: |-
+        重要なお知らせ一覧
+
+        機能概要：
+        「重要なお知らせ」に表示させる投稿記事の一覧を取得する。
+        掲示板一覧とIFは同じだが、ログイン前でも呼び出しできる。
+
+        処理概要：
+        投稿されたお知らせから、重要なお知らせと認定（フラグ判定）された投稿記事を検索し、投稿内容（タイトル、投稿日時、投稿者、カテゴリ、タグ情報など）を抽出し、並び替えを行い、最新情報から指定の件数を応答電文の形式に整形し返答する。
+      tags:
+        - bulletin-boards
+  /bulletin-boards:
+    get:
+      summary: 掲示板記事一覧取得(ログイン後)
+      tags:
+        - bulletin-boards
+      responses:
+        '200':
+          $ref: '#/components/responses/BulletinBoardsList'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: get-bulletin-boards
+      parameters:
+        - $ref: '#/components/parameters/group-code'
+        - $ref: '#/components/parameters/employee-code'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      description: |-
+        掲示板一覧
+
+        機能概要：
+        各掲示板に表示させる投稿記事の一覧を取得する。
+
+        処理概要：
+        会社別掲示板（全社情報を含む）から投稿記事の一覧を取得する。
+        この時、投稿時の設定内容に応じて参照可否を所属コードを条件に判別を行う。（利用者に参照権限がない投稿記事は一覧抽出されない）
+        参照可能な投稿内容（タイトル、投稿日時、投稿者、カテゴリ、タグ情報など）を抽出し、並び替えを行い、最新情報から指定の件数を応答電文の形式に整形し返答する。
+    post:
+      summary: ''
+      operationId: post-bulletin-boards
+      responses:
+        '200':
+          description: OK
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      description: TODO 後日定義する
+  '/bulletin-boards/{ArticleId}':
+    parameters:
+      - schema:
+          type: string
+        name: ArticleId
+        in: path
+        required: true
+        description: 記事ID
+    get:
+      summary: 掲示板記事詳細取得
+      tags:
+        - bulletin-boards
+      responses:
+        '200':
+          $ref: '#/components/responses/BulletinBoardsDetail'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+        '404':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: get-bulletin-boards-articleId
+      description: ''
+    put:
+      summary: ''
+      operationId: put-bulletin-boards-ArticleId
+      responses:
+        '200':
+          description: OK
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      description: TODO 後日定義する
+    delete:
+      summary: ''
+      operationId: delete-bulletin-boards-ArticleId
+      responses:
+        '200':
+          description: OK
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      description: TODO 後日定義する
+  /templates:
+    get:
+      summary: テンプレート一覧
+      tags:
+        - templates
+      responses:
+        '200':
+          $ref: '#/components/responses/Templates'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: get-templates
+      description: |-
+        機能概要：
+        特定のキー（会社など）を条件として、登録されているテンプレート情報を取得する。
+        （店長・事業部長向けなどの配列)
+        処理概要：
+        会社別に登録されている、テンプレート情報（テンプレート番号、テンプレート名、テンプレート概要など）の一覧を会社をキーに検索し、並び替えを行い応答電文の形式に整形し返答する。
+      parameters:
+        - $ref: '#/components/parameters/employee-code'
+    parameters: []
+  /communication-tools:
+    get:
+      summary: コミュニケーションツール一覧
+      tags:
+        - communication-tools
+      responses:
+        '200':
+          $ref: '#/components/responses/CommunicationToolsList'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: get-communication-tools
+      description: |
+        当該ユーザーのコミュニケーションツール一覧を取得。
+      parameters:
+        - $ref: '#/components/parameters/employee-code'
+  /businessmenu/mymenu-links:
+    get:
+      summary: マイメニュー一覧
+      tags:
+        - businessmenu
+      responses:
+        '200':
+          $ref: '#/components/responses/MenuList'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: get-businessmenu-mymenu-links
+      description: |
+        機能概要:
+        １．template-idがない場合：
+        業務メニューのうち、個人ごとで設定されたマイメニューを取得する。
+        ホーム画面で利用したり、マイメニュー追加削除画面での初期設定値に利用する。
+
+        ２．template-idがある場合：
+        個人ごとで設定されたメニューではなく、テンプレートごとで設定されたメニューを取得する。
+
+
+        処理概要:
+        利用者別マイメニュー情報から保存されたマイメニュー情報（どのリンクをマイメニュー選択されているか）検索・抽出を行い、応答電文の形式に整形し返答する。
+        保存されている利用者別マイメニュー情報がない場合には、会社別テンプレート別マイメニュー情報をもとに、リンク情報を検索・抽出を行い、応答電文の形式に整形し返答する。
+
+        template-idがわたされているときは、会社別テンプレート別マイメニュー情報を検索・抽出を行い、応答電文の形式に整形し返答する。
+      parameters:
+        - $ref: '#/components/parameters/employee-code'
+        - $ref: '#/components/parameters/template-id'
+    put:
+      summary: マイメニュー保存
+      operationId: put-businessmenu-mymenu-links
+      responses:
+        '200':
+          description: OK
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      description: |
+        機能概要：
+        利用者が選択したリンクメニュー情報をサーバサイドで保管する。
+
+        処理概要：
+        利用者が設定したマイメニューへ表示するリンク情報の一覧を取得し、利用者別マイメニュー情報を更新する。
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/CommonRequestBody'
+                - type: object
+                  properties:
+                    BusinessData:
+                      type: object
+                      properties:
+                        MetaInfos:
+                          nullable: true
+                        Bodies:
+                          type: object
+                          properties:
+                            EmployeeCode:
+                              type: string
+                              description: 社員コード
+                            LinkCodes:
+                              type: array
+                              description: リンクコード
+                              items:
+                                type: string
+                                maxLength: 10
+      tags:
+        - businessmenu
+    parameters: []
+  /businessmenu/links:
+    get:
+      summary: 業務メニュー一覧
+      tags:
+        - businessmenu
+      responses:
+        '200':
+          $ref: '#/components/responses/MenuList'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: get-businessmenu-links
+      description: |
+        機能概要:
+        利用者が選択可能なリンクメニュー情報を取得する
+
+        処理概要:
+        リンク情報よりログイン者が閲覧可能なリンク情報を検索・抽出を行い応答電文の形式に整形し返答する。
+        リンク情報にはそれぞれのリンクに対して、利用可能なアクセス許可情報を保持しており、利用者の所属会社・所属部署によりアクセス許可の有無を判断して検索するものとします。
+      parameters:
+        - $ref: '#/components/parameters/employee-code'
+    parameters: []
+  /businessmenu/categories:
+    get:
+      summary: 業務メニュー カテゴリ一覧
+      tags:
+        - businessmenu
+      responses:
+        '200':
+          $ref: '#/components/responses/MenuListCategory'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: get-businessmenu-categories
+      description: |-
+        機能概要:
+        業務メニューやマイメニューのカテゴリマスタを取得する。
+        (フロントエンド側でマイメニュー一覧や業務メニュー一覧と突合して表示に利用する)
+
+        処理概要:
+      parameters:
+        - $ref: '#/components/parameters/employee-code'
+    parameters: []
+  /widget/my-widgets:
+    get:
+      summary: 表示ウィジェット一覧
+      tags:
+        - widgets
+      responses:
+        '200':
+          $ref: '#/components/responses/MyWidgetsList'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: get-widget-my-widgets
+      description: |-
+        機能概要：
+        １．template-idがない場合：
+        利用者が設定したウィジェットの一覧を取得する。ホーム画面で表示するウィジェットを決定することに利用する。
+
+        ２．tempalte-idがある場合：
+        テンプレートIDがある場合はテンプレートに登録されているウィジェットの一覧のみを取得する。
+        テンプレートで設定するウィジェットを取得することに利用する。
+
+        処理概要：
+        利用者別ウィジェット情報から保存されたウィジェット情報を検索、抽出を行い応答電文の形式に整形し返答する。保存されているウィジェット情報がない場合には空の情報を返答する。
+      parameters:
+        - $ref: '#/components/parameters/employee-code'
+        - $ref: '#/components/parameters/template-id'
+    put:
+      summary: 表示ウィジェット保存
+      operationId: put-widget-my-widgets
+      responses:
+        '200':
+          description: OK
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      description: |
+        機能概要
+        利用者が設定・変更したウィジェットの一覧をサーバサイドで保管する。
+
+        API処理概要
+        利用者側で追加や並び替えを行ったウィジェット一覧情報を取得し利用者別ウィジェット情報を更新する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/CommonRequestBody'
+                - type: object
+                  properties:
+                    BusinessData:
+                      type: object
+                      properties:
+                        MetaInfos:
+                          nullable: true
+                        Bodies:
+                          type: object
+                          properties:
+                            EmployeeCode:
+                              type: string
+                              description: 社員コード
+                            WidgetIds:
+                              type: array
+                              description: ウィジェットid(配列の順=ウィジェットの表示順)
+                              items:
+                                type: integer
+      tags:
+        - widgets
+    parameters: []
+  /widget/widgets:
+    get:
+      summary: 表示可能ウィジェット一覧
+      tags:
+        - widgets
+      responses:
+        '200':
+          $ref: '#/components/responses/MyWidgetsList'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: get-widget-widgets
+      description: |
+        機能概要：
+        会社別の利用可能なウィジェットの一覧を取得する。
+
+        処理概要：
+        マスタ情報として登録されている、ウィジェット一覧とウィジェト別にアクセス許可情報をもとにして利用者が表示可能なウィジェット一覧を検索・抽出を行い応答電文の形式に整形し返答する。
+      parameters:
+        - $ref: '#/components/parameters/employee-code'
+  /globalmenu-links:
+    get:
+      summary: ハンバーガーメニューの内容取得
+      tags:
+        - others
+      responses:
+        '200':
+          $ref: '#/components/responses/GlobalMenuLinks'
+        '400':
+          $ref: '#/components/responses/ErrorCommon'
+      operationId: get-globalmenu-links
+      description: |-
+        機能概要
+        ハンバーガーメニューの内容を取得する
+
+        処理概要
+        会社コードをもとに、スライドメニューの内容を検索・抽出し応答電文の形式に整形し返答する。
+      parameters:
+        - $ref: '#/components/parameters/employee-code'
+components:
+  schemas:
+    Employee:
+      title: User
+      type: object
+      description: |-
+        TODO:
+        ユーザー名が漢字の姓名か表示名か不明のため、要確認
+      properties:
+        FirstNameKanji:
+          type: string
+          description: '姓_漢字 TODO: テーブルと差異有り、requiredか確認'
+          maxLength: 40
+        LastNameKanji:
+          type: string
+          description: '名_漢字 TODO: テーブルと差異有り、requiredか確認'
+          maxLength: 40
+        EmployeeCode:
+          type: string
+          minLength: 10
+          maxLength: 10
+          description: 社員コード
+        FinancialCompanyCode:
+          type: string
+          description: 財務会社コード
+          minLength: 4
+          maxLength: 4
+        FinancialCompanyNameKanji:
+          type: string
+          description: '財務会社名_漢字 TODO: テーブルと差異有り、requiredか確認'
+          maxLength: 40
+        SecondLevelCode:
+          type: string
+          description: '第二階層コード TODO: テーブルと差異有り、requiredか確認'
+          minLength: 2
+          maxLength: 2
+        SecondLevelName:
+          type: string
+          description: '第二階層名 TODO: テーブルと差異有り、requiredか確認'
+          maxLength: 40
+        ThirdLevelCode:
+          type: string
+          minLength: 6
+          maxLength: 6
+          description: '第三階層コード TODO: テーブルと差異有り、requiredか確認'
+        ThirdLevelName:
+          type: string
+          description: '第三階層名 TODO: テーブルと差異有り、requiredか確認'
+          maxLength: 40
+        PersonnelAffiliationCode:
+          type: string
+          description: '人事所属コード TODO: テーブルと差異有り、requiredか確認'
+          minLength: 10
+          maxLength: 10
+        PositionNameKanji:
+          type: string
+          description: 職位名_漢字
+          maxLength: 40
+        PositionCode:
+          type: string
+          description: 職位コード
+          minLength: 3
+          maxLength: 3
+      required:
+        - FirstNameKanji
+        - LastNameKanji
+        - EmployeeCode
+        - FinancialCompanyCode
+        - FinancialCompanyNameKanji
+        - SecondLevelCode
+        - SecondLevelName
+        - ThirdLevelCode
+        - ThirdLevelName
+        - PersonnelAffiliationCode
+    BulletinBoardsListItem:
+      title: BulletinBoardsListItem
+      type: object
+      description: 掲示板のデータのうち、一覧詳細両方に出すデータ
+      properties:
+        BulletinBoardId:
+          type: number
+          description: '記事ID TODO: 命名も含めてTODO TODO: テーブルと差異有り、requiredか確認'
+        Title:
+          type: string
+          description: 'タイトル TODO: テーブルと差異有り、requiredか確認'
+          maxLength: 50
+        SubmissionDatetime:
+          type: string
+          description: |-
+            投稿日時
+            クライアントで取得した現在時刻（UTC）を設定する。
+            書式:YYYY-MM-DDTHH:mm:ss.sss TODO: テーブルと差異有り、requiredか確認
+          format: date-time
+          maxLength: 23
+          minLength: 23
+          example: '2019-08-24T14:15:22.000'
+        LeadText:
+          type: string
+          description: リード文。search_body_textの先頭100文字
+        Contributor:
+          type: string
+          description: 投稿者名
+        EmployeeCode:
+          type: string
+          description: 社員コード
+          maxLength: 10
+          minLength: 10
+        ImportanceLevel:
+          type: integer
+          description: 重要度。0=通常、1=重要、2=緊急
+          enum:
+            - 0
+            - 1
+            - 2
+        BulletinCategoryCode:
+          type: string
+          description: 掲示板カテゴリコード
+          minLength: 4
+          maxLength: 4
+          example: '9999'
+        BulletinCategoryName:
+          type: string
+          description: 掲示板カテゴリ名
+          maxLength: 50
+        NumberOfAccesses:
+          type: integer
+          description: アクセス数
+          minimum: 0
+      required:
+        - BulletinBoardId
+        - Title
+        - SubmissionDatetime
+        - LeadText
+        - Contributor
+        - EmployeeCode
+        - ImportanceLevel
+        - BulletinCategoryCode
+        - BulletinCategoryName
+        - NumberOfAccesses
+    BulletinBoardsFull:
+      title: BulletinBoardsFull
+      allOf:
+        - $ref: '#/components/schemas/BulletinBoardsListItem'
+        - type: object
+          properties:
+            Body:
+              type: string
+              description: HTML本文
+    CommonRequestBody:
+      description: ''
+      type: object
+      properties:
+        SrcSystem:
+          $ref: '#/components/schemas/CommonSrcSystem'
+      required:
+        - SrcSystem
+    CommonListResult:
+      title: CommonListResult
+      type: object
+      properties:
+        Id:
+          type: string
+    CommonResponseBody:
+      title: CommonResponseBody
+      type: object
+      properties:
+        SrcSystem:
+          $ref: '#/components/schemas/CommonSrcSystem'
+        ApiVersion:
+          $ref: '#/components/schemas/CommonApiVersion'
+        DestSystem:
+          $ref: '#/components/schemas/CommonDestSystem'
+      required:
+        - SrcSystem
+        - ApiVersion
+        - DestSystem
+    CommonResponseMeta:
+      title: CommonResponseMeta
+      nullable: true
+      description: |-
+        特にメタデータが必要でないときのレスポンスのMetaData。
+        一覧の時はこれをつかわず、CommonResponseMetaListResultをつかう。
+    CommonResponseMetaListResult:
+      title: CommonResponseMetaListResult
+      type: object
+      description: 一覧取得時のメタデータ。あらゆる一覧取得系にこれを付与する。
+      properties:
+        TotalCount:
+          type: number
+          description: 総件数。ページネーション表示につかう。
+          example: 77
+          minimum: 0
+        Offset:
+          type: number
+          description: リクエスト時のoffset。リクエストをおうむ返し想定
+          minimum: 0
+          example: 40
+        Limit:
+          type: number
+          description: リクエスト時のlimit。リクエストをおうむ返し想定。
+          example: 20
+          minimum: 0
+      required:
+        - TotalCount
+        - Offset
+        - Limit
+    CommonSrcSystem:
+      title: CommonSrcSystem
+      type: object
+      properties:
+        SystemId:
+          type: string
+          minLength: 1
+          description: |
+            クライアントのシステムを識別する一意な文字列
+        TranToken:
+          type: string
+          description: クライアントでで本メッセージを一意に識別するトークン文字列。DX基盤で特に形式に定めはないようなのでUUIDv4とする。レスポンス時にも同じ値を返す
+          example: 123e4567-e89b-12d3-a456-426614174000
+          format: uuid
+          minLength: 36
+          maxLength: 36
+        TranDateTime:
+          type: string
+          description: |-
+            クライアントで取得した現在時刻（UTC）を設定する。
+            書式:YYYY-MM-DDTHH:mm:ss.sss
+          example: '2019-08-24T14:15:22.000'
+          minLength: 23
+          maxLength: 23
+      required:
+        - SystemId
+        - TranToken
+        - TranDateTime
+    CommonApiVersion:
+      description: ''
+      type: object
+      properties:
+        ApiName:
+          type: string
+          minLength: 1
+          example: Cosmos2
+          description: API名
+          maxLength: 64
+        Version:
+          type: string
+          example: 1.2.3
+          minLength: 5
+          maxLength: 16
+          description: APIバージョン
+      required:
+        - ApiName
+        - Version
+    CommonDestSystem:
+      title: CommonDestSystem
+      type: object
+      properties:
+        SystemId:
+          type: string
+          description: |
+            システムID
+        ReceptToken:
+          type: string
+          description: リクエスト受付時に一意になるようにサーバー側でランダム文字列を設定。uuidV4想定
+          example: 223e4567-e89b-12d3-a456-426614174012
+          format: uuid
+          minLength: 36
+          maxLength: 36
+        ReceptDatetime:
+          type: string
+          description: |-
+            クライアントで取得した現在時刻（UTC）を設定する。
+            書式:YYYY-MM-DDTHH:mm:ss.sss
+          example: '2019-08-24T14:15:22.000'
+          minLength: 23
+          maxLength: 23
+        Result:
+          type: object
+          description: 処理結果
+          required:
+            - Code
+          properties:
+            Code:
+              type: string
+              description: |-
+                エラーコード。
+                数値文字列。
+                リクエストに対する処理結果コードは以下のコード体系で設定
+                正常系：0～9999　　エラー系：10000～99999
+              example: '0'
+            Message:
+              type: string
+              description: メッセージ。正常時は使わない。エラー時にだけ返す想定。
+              maxLength: 256
+      required:
+        - SystemId
+        - ReceptToken
+        - ReceptDatetime
+        - Result
+    CommonBusinessData:
+      title: CommonBusinessData
+      type: object
+      properties:
+        Id:
+          type: string
+    CommonFunctionAvailability:
+      title: CommonFunctionAvailability
+      type: object
+      properties:
+        Id:
+          type: string
+      description: 'TODO: 認可系設計がみえてから'
+    TemplatesMinimal:
+      title: TemplatesMinimal
+      type: object
+      properties:
+        TemplateId:
+          type: integer
+          description: テンプレートid
+        TemplateName:
+          type: string
+          maxLength: 100
+          description: テンプレート名
+          example: 店長・事業部長向け
+        TemplateExplanatoryNote:
+          type: string
+          maxLength: 200
+          description: テンプレート説明文
+          example: 担当店舗の売上や月中コントロールをすぐ確認できます。
+      required:
+        - TemplateId
+        - TemplateName
+    Widget:
+      title: Widget
+      type: object
+      properties:
+        WidgetId:
+          type: integer
+          description: ウィジェットid
+        WidgetName:
+          type: string
+          maxLength: 100
+          description: ウィジェット名
+      required:
+        - WidgetId
+        - WidgetName
+    MenuLink:
+      title: MenuLink
+      type: object
+      description: テーブル「メニューリンク」の項目にしたがう
+      properties:
+        LinkCode:
+          type: string
+          description: リンクコード
+          maxLength: 10
+        LinkCategoryCode:
+          type: string
+          description: リンクカテゴリコード
+          maxLength: 5
+        LinkName:
+          type: string
+          description: リンク名
+          example: Zoom
+        LinkUrl:
+          type: string
+          description: リンク先URL
+          format: uri
+          maxLength: 2048
+      required:
+        - LinkCode
+        - LinkCategoryCode
+        - LinkName
+        - LinkUrl
+    MenuLinkCommunicationTool:
+      allOf:
+        - $ref: '#/components/schemas/MenuLink'
+        - type: object
+          properties:
+            IconUrl:
+              type: string
+              description: アイコン画像URL
+              maxLength: 2048
+              format: uri
+          required:
+            - IconUrl
+    MenuLinkBusinessMenu:
+      title: MenuLinkBusinessMenu
+      allOf:
+        - $ref: '#/components/schemas/MenuLink'
+        - type: object
+          properties:
+            MandatoryFlg:
+              type: boolean
+              default: false
+              description: 強制表示フラグ
+            CommonLinkFlg:
+              type: boolean
+              description: 共通リンクフラグ
+          required:
+            - MandatoryFlg
+            - CommonLinkFlg
+      description: 業務メニューおよびマイメニュー
+    MenuLinkCategory:
+      title: MenuLinkCategory
+      type: object
+      description: マイメニュー カテゴリ
+      properties:
+        LinkCategoryCode:
+          type: string
+          description: リンクカテゴリコード
+          maxLength: 5
+        LinkCategoryName:
+          type: string
+          maxLength: 100
+          description: リンクカテゴリ名
+      required:
+        - LinkCategoryCode
+        - LinkCategoryName
+    GlobalMenuLink:
+      title: GlobalMenuLink
+      type: object
+      description: ハンバーガーメニュー
+      properties:
+        LinkType:
+          type: integer
+          description: 'リンク種別 1：ウィジェット、2:リンク'
+          enum:
+            - 1
+            - 2
+        WidgetId:
+          type: integer
+          description: ウィジェットid 種別１のみ。2の場合はnull
+        LinkUrl:
+          type: string
+          description: リンク先URL 種別2のみ。1の場合はnull
+          maxLength: 2048
+          format: uri
+        IconUrl:
+          type: string
+          description: アイコンURL 種別１・２両用
+      required:
+        - LinkType
+        - WidgetId
+        - LinkUrl
+        - IconUrl
+    WidgetsMinimal:
+      title: Widgets
+      type: object
+      properties:
+        WidgetId:
+          type: integer
+        WidgetName:
+          type: string
+          example: 重要なお知らせ
+          maxLength: 100
+      required:
+        - WidgetId
+        - WidgetName
+  responses:
+    BulletinBoardsList:
+      description: 掲示板一覧
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/CommonResponseBody'
+              - type: object
+                properties:
+                  BusinessData:
+                    type: object
+                    required:
+                      - MetaInfos
+                      - Bodies
+                    properties:
+                      MetaInfos:
+                        $ref: '#/components/schemas/CommonResponseMetaListResult'
+                      Bodies:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/BulletinBoardsListItem'
+                required:
+                  - BusinessData
+    BulletinBoardsDetail:
+      description: 掲示板詳細
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/CommonResponseBody'
+              - type: object
+                properties:
+                  BusinessData:
+                    type: object
+                    required:
+                      - MetaInfos
+                      - Bodies
+                    properties:
+                      MetaInfos:
+                        type: array
+                        items:
+                          type: object
+                      Bodies:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/BulletinBoardsListItem'
+                required:
+                  - BusinessData
+    Templates:
+      description: テンプレート一覧
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/CommonResponseBody'
+              - type: object
+                properties:
+                  BusinessData:
+                    type: object
+                    required:
+                      - MetaInfos
+                      - Bodies
+                    properties:
+                      MetaInfos:
+                        $ref: '#/components/schemas/CommonResponseMetaListResult'
+                      Bodies:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/TemplatesMinimal'
+                required:
+                  - BusinessData
+    Employee:
+      description: 従業員
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/CommonResponseBody'
+              - type: object
+                properties:
+                  BusinessData:
+                    type: object
+                    required:
+                      - MetaInfos
+                      - Bodies
+                    properties:
+                      MetaInfos:
+                        $ref: '#/components/schemas/CommonResponseMeta'
+                      Bodies:
+                        $ref: '#/components/schemas/Employee'
+                required:
+                  - BusinessData
+    CommunicationToolsList:
+      description: コミュニケーションツール一覧
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/CommonResponseBody'
+              - type: object
+                properties:
+                  BusinessData:
+                    type: object
+                    required:
+                      - MetaInfos
+                      - Bodies
+                    properties:
+                      MetaInfos:
+                        $ref: '#/components/schemas/CommonResponseMetaListResult'
+                      Bodies:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/MenuLinkCommunicationTool'
+                required:
+                  - BusinessData
+    MenuList:
+      description: マイメニュー一覧
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/CommonResponseBody'
+              - type: object
+                properties:
+                  BusinessData:
+                    type: object
+                    required:
+                      - MetaInfos
+                      - Bodies
+                    properties:
+                      MetaInfos:
+                        nullable: true
+                      Bodies:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/MenuLinkBusinessMenu'
+                required:
+                  - BusinessData
+    MenuListCategory:
+      description: マイメニューカテゴリ一覧
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/CommonResponseBody'
+              - type: object
+                properties:
+                  BusinessData:
+                    type: object
+                    required:
+                      - MetaInfos
+                      - Bodies
+                    properties:
+                      MetaInfos:
+                        nullable: true
+                      Bodies:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/MenuLinkCategory'
+                required:
+                  - BusinessData
+    ErrorCommon:
+      description: エラー系共通
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/CommonResponseBody'
+    MyWidgetsList:
+      description: 表示ウィジェット一覧。表示可能ウィジェット一覧でもモデルは共用
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/CommonResponseBody'
+              - type: object
+                properties:
+                  BusinessData:
+                    type: object
+                    required:
+                      - MetaInfos
+                      - Bodies
+                    properties:
+                      MetaInfos:
+                        nullable: true
+                      Bodies:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/WidgetsMinimal'
+                required:
+                  - BusinessData
+    GlobalMenuLinks:
+      description: ハンバーガーメニューの内容取得
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/CommonResponseBody'
+              - type: object
+                properties:
+                  BusinessData:
+                    type: object
+                    required:
+                      - MetaInfos
+                      - Bodies
+                    properties:
+                      MetaInfos:
+                        nullable: true
+                      Bodies:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/GlobalMenuLink'
+                required:
+                  - BusinessData
+  parameters:
+    limit:
+      name: limit
+      in: query
+      schema:
+        type: number
+      description: 取得上限件数。なしの場合全件取得。
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: number
+      description: 取得する際のオフセット(limit=20&offset=20で2ページ目)
+    category:
+      schema:
+        type: string
+        maxLength: 4
+      name: bulletin-category-code
+      example: '9999'
+      in: query
+      description: 掲示板カテゴリコード
+    employee-code:
+      name: employee-code
+      in: query
+      schema:
+        type: string
+        maxLength: 10
+        minLength: 10
+      description: 社員コード
+      required: true
+    path-employee-code:
+      name: employee-code
+      in: path
+      required: true
+      schema:
+        type: string
+        minLength: 10
+        maxLength: 10
+      description: 社員コード
+    template-id:
+      name: template-id
+      in: query
+      schema:
+        type: integer
+      description: テンプレートID
+    group-code:
+      name: group-code
+      in: query
+      required: true
+      schema:
+        type: string
+        minLength: 4
+        maxLength: 4
+      description: 掲示板グループコード。9999は重要なお知らせ、9998は全社、9997はシステム稼働状況、その他は個別定義のグループコード
+tags:
+  - name: employee
+    description: 従業員
+  - name: bulletin-boards
+    description: 掲示板
+  - name: templates
+    description: テンプレート
+  - name: communication-tools
+    description: コミュニケーションツール
+  - name: businessmenu
+    description: 業務メニュー
+  - name: widgets
+    description: ウィジェット
+  - name: others
+    description: その他

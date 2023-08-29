@@ -1,0 +1,188 @@
+.a-upload-field {
+  $root: &;
+
+  &__input-area {
+    position: relative;
+    display: block;
+
+    #{$root}:not(#{$root}--not-draggable) & {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 192px;
+      background-color: $color-base-whitesmoke;
+      border: 2px dashed $color-grey-2;
+      border-radius: 12px;
+
+      &:focus {
+        background-color: $color-grey-5;
+
+        #{$root}__label {
+          background-color: $color-base-linen;
+        }
+      }
+    }
+
+    #{$root}#{$root}--with-error:not(#{$root}--not-draggable) & {
+      border-color: $color-primary-red;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    cursor: pointer;
+    background-color: $color-base-whitesmoke;
+    border: 2px dashed $color-grey-2;
+    border-radius: 12px;
+    outline: none;
+    opacity: 0;
+  }
+
+  &__placeholder {
+    #{$root}:not(#{$root}--not-draggable) & {
+      text-align: center;
+    }
+  }
+
+  &__title {
+    #{$root}:not(#{$root}--not-draggable) & {
+      display: block;
+      line-height: 28px;
+
+      @include sp() {
+        display: none;
+      }
+    }
+  }
+
+  &__label {
+    #{$root}:not(#{$root}--not-draggable) & {
+      display: block;
+      width: 100%;
+      padding: 12px 26px;
+      margin-top: 12px;
+      font-weight: xd-font-weight('bold');
+      color: $color-primary-purple;
+      cursor: pointer;
+      background-color: $color-base-white;
+      border-radius: 28px;
+
+      &:hover {
+        background-color: $color-base-linen;
+        transition: 0.25s ease-out;
+      }
+    }
+
+    #{$root}--not-draggable & {
+      font-family: $fontset-jp;
+      font-size: 14px;
+      font-weight: xd-font-weight('bold');
+      line-height: 20px;
+      cursor: pointer;
+
+      .a-icon {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &__description {
+    #{$root}:not(#{$root}--not-draggable) & {
+      margin-top: 12px;
+      font-size: $fontset-jp;
+      font-size: 12px;
+      line-height: 28px;
+      color: $color-text-gray;
+    }
+  }
+
+  &__preview {
+    @supports (display: grid) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 158px);
+      grid-gap: 19px;
+    }
+
+    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+      display: flex;
+    }
+
+    #{$root}:not(#{$root}--not-draggable) & {
+      margin-top: 22px;
+    }
+
+    #{$root}--not-draggable & {
+      margin-bottom: 22px;
+    }
+  }
+
+  &__reset {
+    display: none;
+    margin-top: 24px;
+
+    #{$root}--with-reset & {
+      display: block;
+    }
+  }
+
+  &__image {
+    position: relative;
+    flex: 0 0 158px;
+    height: 158px;
+    margin-top: 19px;
+    list-style: none;
+    background: $color-grey-4;
+    border: 1px solid $color-grey-4;
+    border-radius: 12px;
+
+    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+      margin-right: 19px;
+    }
+
+    > img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &__clear-button {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: $color-secondary-grey;
+    border-radius: 12px;
+  }
+
+  &__file-list {
+    #{$root}:not(#{$root}--not-draggable) & {
+      margin-top: 32px;
+    }
+
+    #{$root}--not-draggable & {
+      margin-bottom: 16px;
+    }
+
+    &--image,
+    &--no-child {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+/.eslintrc.js
+/orval.config.js
+/.hygen.js
+/src/api/model
+/src/api/api.msw.ts
+/src/api/api.ts

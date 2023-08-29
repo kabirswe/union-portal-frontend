@@ -1,0 +1,50 @@
+.a-email-template-editor {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  height: 240px;
+  padding: 12px 0;
+  background: $color-base-whitesmoke;
+  border-radius: 8px;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    /* stylelint-disable */
+    .ql-editor {
+      height: 100%;
+      font-family: $fontset-jp;
+      font-size: 16px;
+      line-height: 26px;
+
+      .a-text-placeholder {
+        margin-bottom: 8px;
+      }
+    }
+
+    .ql-mention-list {
+      list-style: none;
+      padding: 16px 20px;
+      background: $color-base-white;
+      border-radius: 12px;
+      box-shadow: 0 10px 16px rgba($color-base-lightgray, 40%);
+    }
+
+    .ql-mention-list-item {
+      font-size: 14px;
+      line-height: 20px;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-primary-purple;
+      }
+
+      &:not(:first-child) {
+        margin-top: 9px;
+      }
+    }
+    /* stylelint-enable */
+  }
+}

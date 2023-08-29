@@ -1,0 +1,24 @@
+extends: 'spectral:oas'
+rules:
+  operation-description: info
+  oas3-parameter-description: error
+  operation-singular-tag: error
+  tag-description: error
+  response-shuold-be-pascal:
+    description: Response's JSON key should be PascalCase.
+    type: style
+    given: $.components.schemas..properties.*~
+    then:
+      function: casing
+      functionOptions:
+        type: pascal
+    severity: error
+  param-shuold-be-kebab:
+    description: Request param's key should be kebab-cased.
+    type: style
+    given: $.components.parameters.*~
+    then:
+      function: casing
+      functionOptions:
+        type: kebab
+    severity: error

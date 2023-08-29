@@ -1,0 +1,16 @@
+export const ROUTES = {
+  TOP: '/top',
+  DND_LIST: '/dnd-list',
+  FORM: '/form',
+  SAMPLE: '/sample',
+  SETTING: '/setting',
+  ADFS: '/adfs',
+  SGN_01_01: '/',
+  HOM_01_01: '/home/',
+  TPL_01_01: '/template/',
+  WDT_01_01: '/customize/',
+  WDT_02_01: '/customize/add/',
+  WRK_01_01: '/workmenu/',
+  BML_01_01: '/get-businessmenu-mymenu-links/',
+  IMI_01_01: '/important-info/',
+} as const;

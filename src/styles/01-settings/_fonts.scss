@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+  font-display: swap;
+  font-family: noto-sans-cjk-jp;
+  font-weight: 700;
+  src: local('Noto Sans CJK JP Bold'), url($path-assets-fonts + '/NotoSansCJKjp-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: noto-sans-cjk-jp;
+  font-weight: 350;
+  src: local('Noto Sans CJK JP DemiLight'), url($path-assets-fonts + '/NotoSansCJKjp-DemiLight.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: noto-sans-cjk-jp;
+  font-weight: 300;
+  src: local('Noto Sans CJK JP Light'), url($path-assets-fonts + '/NotoSansCJKjp-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: noto-sans-cjk-jp;
+  font-weight: 500;
+  src: local('Noto Sans CJK JP Medium'), url($path-assets-fonts + '/NotoSansCJKjp-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: noto-sans-cjk-jp;
+  font-weight: 600;
+  src: local('Noto Sans CJK JP Medium'), url($path-assets-fonts + '/NotoSansCJKjp-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: noto-sans-cjk-jp;
+  font-weight: 400;
+  src: local('Noto Sans CJK JP Regular'), url($path-assets-fonts + '/NotoSansCJKjp-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: noto-sans-cjk-jp;
+  font-weight: 100;
+  src: local('Noto Sans CJK JP Thin'), url($path-assets-fonts + '/NotoSansCJKjp-Thin.woff2') format('woff2');
+}
+
+$font-noto: noto-sans-cjk-jp, 'メイリオ', meiryo, 'MS Pゴシック', 'MS PGothic';
+$font-inter: 'Inter', 'Helvetica', arial;

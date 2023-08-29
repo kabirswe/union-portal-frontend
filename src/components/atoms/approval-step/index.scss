@@ -1,0 +1,95 @@
+.a-approval-step {
+  $root: &;
+
+  position: relative;
+  z-index: 1;
+  min-height: 80px;
+  font-family: $fontset-jp;
+  list-style: none;
+
+  &::before {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+    content: '';
+    background-color: $color-base-white;
+    border: 4px solid $color-primary-grey;
+    border-radius: 50%;
+  }
+
+  @include pc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &--auto {
+    display: flex;
+    align-self: center;
+    min-height: 64px;
+    line-height: 1;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  &__step-number {
+    display: block;
+    margin-left: 24px;
+    font-size: 14px;
+    font-weight: xd-font-weight('bold');
+    line-height: 24px;
+
+    &::before {
+      content: 'ステップ ';
+    }
+
+    @include pc {
+      margin-top: 28px;
+      margin-left: 0;
+    }
+  }
+
+  &__name {
+    display: inline-block;
+    margin-top: 8px;
+    margin-left: 24px;
+    font-size: 14px;
+    line-height: 24px;
+
+    @include pc {
+      margin-top: 5px;
+      margin-left: 0;
+    }
+
+    &::before {
+      content: '承認者：';
+    }
+
+    #{$root}--auto & {
+      margin-top: 0;
+      margin-left: 8px;
+
+      @include pc {
+        margin-top: 5px;
+        margin-left: 0;
+      }
+
+      &::before {
+        content: '';
+      }
+    }
+
+    #{$root}--has-requester & {
+      &::after {
+        content: '(あなた)';
+        @include pc {
+          display: block;
+        }
+      }
+    }
+  }
+}

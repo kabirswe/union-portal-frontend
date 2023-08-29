@@ -1,0 +1,58 @@
+.a-apply-button {
+  $root: &;
+
+  position: relative;
+  z-index: $zindex-float-button;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  padding: 0 8px;
+  font-family: $fontset-jp;
+  font-size: 14px;
+  font-weight: xd-font-weight('bold');
+  line-height: 20px;
+  color: $color-text-white;
+  cursor: pointer;
+  background-image: $color-primary-blue-gradient-reverse;
+  background-image: $color-primary-blue-gradient-reverse-ms;
+  border-radius: 22px;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
+  border-bottom-left-radius: 22px;
+  box-shadow: 0 8px 16px rgba($color-base-pitch-black, 10%);
+  transition: box-shadow 0.25s;
+
+  .a-icon {
+    margin-right: 4px;
+  }
+
+  &:hover {
+    background: $color-primary-blue;
+  }
+
+  &:active {
+    background: $color-base-royalblue;
+    box-shadow: none;
+  }
+
+  @include sp() {
+    position: fixed;
+    right: 16px;
+    bottom: 99px;
+    flex-direction: column;
+    width: 64px;
+    height: 64px;
+    font-size: 10px;
+    background: $color-primary-blue-v-gradient;
+    background: $color-primary-blue-v-gradient-ms;
+    border-radius: 50%;
+
+    .a-icon {
+      margin-right: 0;
+    }
+  }
+}

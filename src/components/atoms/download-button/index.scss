@@ -1,0 +1,32 @@
+.a-download-button {
+  display: inline-flex;
+  align-items: center;
+  font-family: $fontset-jp;
+  font-size: 16px;
+  font-weight: xd-font-weight('bold');
+  line-height: 24px;
+  color: $color-text-black;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-primary-purple;
+    text-decoration: none;
+  }
+
+  &:visited {
+    color: $color-primary-purple;
+  }
+
+  &:active {
+    color: $color-primary-purple;
+  }
+
+  &--disabled {
+    color: $color-grey-2;
+    pointer-events: none;
+  }
+
+  &__content {
+    margin-left: 8px;
+  }
+}

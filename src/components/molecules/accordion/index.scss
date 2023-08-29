@@ -1,0 +1,57 @@
+.m-accordion {
+  $root: &;
+
+  &__label {
+    font-family: $fontset-jp;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      color: $color-primary-purple;
+    }
+
+    /* &::after {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      color: $color-primary-purple;
+      content: '';
+      background-color: currentColor;
+      background-size: contain;
+      transform: translate(8px, 2px);
+      mask-type: alpha;
+      mask-image: url('~images/icons/arrow-down.svg');
+      #{$root}--opened & {
+        mask-image: url('~images/icons/arrow-up.svg');
+      }
+    } */
+    & .a-icon {
+      position: relative;
+      top: -2px;
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      margin-left: 8px;
+      #{$root}--opened & {
+        background-image: url('~images/icons/arrow-up.svg');
+      }
+    }
+  }
+
+  &__detail {
+    --detail-height: auto;
+
+    height: 0;
+    margin-top: 17px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.25s ease-out;
+
+    #{$root}--opened & {
+      height: var(--detail-height, auto);
+      opacity: 1;
+    }
+  }
+}

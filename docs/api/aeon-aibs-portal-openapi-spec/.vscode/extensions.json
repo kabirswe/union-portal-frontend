@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "arjun.swagger-viewer",
+    "redhat.vscode-yaml",
+    "gitlab.gitlab-workflow"
+  ]
+}

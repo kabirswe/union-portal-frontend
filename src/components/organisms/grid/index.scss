@@ -1,0 +1,272 @@
+@mixin grid-system(
+  $cell-class,
+  $no-flex: false,
+  $justify-pc: flex-start,
+  $justify-sp: flex-start,
+  $align-pc: flex-start,
+  $align-sp: flex-start,
+  $gutter-pc-h: 0,
+  $gutter-pc-v: 0,
+  $gutter-sp-h: 0,
+  $gutter-sp-v: 0
+) {
+  @if $no-flex == false {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include pc {
+      justify-content: $justify-pc;
+    }
+
+    @include sp {
+      justify-content: $justify-sp;
+    }
+  }
+
+  @include pc {
+    margin-top: #{-1 * $gutter-pc-v};
+    margin-left: #{-1 * $gutter-pc-h};
+  }
+
+  @include sp {
+    margin-top: #{-1 * $gutter-sp-v};
+    margin-left: #{-1 * $gutter-pc-h};
+  }
+
+  #{$cell-class} {
+    @include pc {
+      padding-top: $gutter-pc-v;
+      padding-left: $gutter-pc-h;
+    }
+
+    @include sp {
+      padding-top: $gutter-sp-v;
+      padding-left: $gutter-sp-h;
+    }
+  }
+
+  @content;
+}
+
+@mixin grid-system-cell($col-pc: 12, $col-sp: 12, $order-pc: false, $order-sp: false) {
+  box-sizing: border-box;
+
+  @include pc {
+    width: #{100% * ($col-pc / 12)};
+    max-width: #{100% * ($col-pc / 12)}; // Patch for IE11
+
+    @if $order-pc {
+      order: $order-pc;
+    }
+  }
+
+  @include sp {
+    width: #{100% * ($col-pc / 12)};
+    max-width: #{100% * ($col-pc / 12)}; // Patch for IE11
+
+    @if $order-sp {
+      order: $order-sp;
+    }
+  }
+
+  @content;
+}
+
+.o-grid {
+  $root: &;
+
+  width: 100%;
+
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    #{$root}-directioncolumn > & {
+      display: block;
+    }
+
+    #{$root}-justify-pc-center > & {
+      @include pc {
+        justify-content: center;
+      }
+    }
+
+    #{$root}-justify-sp-center > & {
+      @include sp {
+        justify-content: center;
+      }
+    }
+
+    #{$root}-justify-pc-space-between > & {
+      @include pc {
+        justify-content: space-between;
+      }
+    }
+
+    #{$root}-justify-sp-space-between > & {
+      @include sp {
+        justify-content: space-between;
+      }
+    }
+
+    #{$root}-align-pc-space-between > & {
+      @include pc {
+        align-items: space-between;
+      }
+    }
+
+    #{$root}-align-pc-center > & {
+      @include pc {
+        align-items: center;
+      }
+    }
+    #{$root}-align-sp-center > & {
+      @include sp {
+        align-items: center;
+      }
+    }
+
+    #{$root}-align-pc-bottom > & {
+      @include pc {
+        align-items: flex-end;
+      }
+    }
+
+    #{$root}-align-sp-bottom > & {
+      @include sp {
+        align-items: flex-end;
+      }
+    }
+  }
+
+  &__cell {
+    box-sizing: border-box;
+    display: flex; /* TO make grandchild's height 100% */
+    // flex-direction: column; /* TO make grandchild's height 100% */
+    &-center {
+      justify-content: center;
+    }
+    &-left {
+      justify-content: flex-start;
+    }
+    &-right {
+      justify-content: flex-end;
+    }
+    &-block {
+      display: block;
+    }
+    &-displaycolumn {
+      flex-direction: column;
+    }
+    &-hidepc {
+      @include pc {
+        display: none;
+      }
+    }
+    &-hidesp {
+      @include sp {
+        display: none;
+      }
+    }
+    @for $level from 1 through 12 {
+      $new: ($level * 0.083333333333);
+      @include pc {
+        &--col-pc-#{$level} {
+          width: (100% * $new); // width pc
+          max-width: (100% * $new); // IE11対策 max-width pc
+        }
+      }
+
+      @include sp {
+        &--col-sp-#{$level} {
+          width: (100% * $new); // width sp
+          max-width: (100% * $new); // IE11対策 max-width sp
+        }
+      }
+    }
+
+    @for $i from 1 through 20 {
+      @include pc {
+        &--order-pc-#{$i} {
+          order: $i;
+        }
+      }
+
+      @include sp {
+        &--order-sp-#{$i} {
+          order: $i;
+        }
+      }
+    }
+  }
+
+  @for $level from 1 through 20 {
+    // 1,2,3,4,6....
+    $margin: $level;
+
+    &--gutter-pc-h-#{$level} {
+      @include pc {
+        & > #{$root}__body {
+          width: calc(100% + #{$margin}px);
+          margin-left: #{-1 * $margin}px;
+
+          & > #{$root}__cell {
+            padding-left: #{$margin}px;
+          }
+        }
+      }
+    }
+
+    &--gutter-pc-v-#{$level} {
+      @include pc {
+        & > #{$root}__body {
+          margin-top: #{-1 * $margin}px;
+
+          & > #{$root}__cell {
+            padding-top: #{$margin}px;
+          }
+        }
+      }
+    }
+
+    &--gutter-sp-h-#{$level} {
+      @include sp {
+        & > #{$root}__body {
+          width: calc(100% + #{$margin}px);
+          margin-left: #{-1 * $margin}px;
+
+          & > #{$root}__cell {
+            padding-left: #{$margin}px;
+          }
+        }
+      }
+    }
+
+    &--gutter-sp-v-#{$level} {
+      @include sp {
+        & > #{$root}__body {
+          margin-top: #{-1 * $margin}px;
+
+          & > #{$root}__cell {
+            padding-top: #{$margin}px;
+          }
+        }
+      }
+    }
+  }
+
+  // stylelint-disable-next-line selector-class-pattern
+  &-gutter-pc-v-28 {
+    // for CMP-11-01
+    @include pc {
+      & > #{$root}__body {
+        margin-top: -28px;
+
+        & > #{$root}__cell {
+          padding-top: 28px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.a-quota-info {
+  display: flex;
+
+  &__item {
+    &:not(:first-child) {
+      position: relative;
+      padding-left: 25px;
+      margin-left: 25px;
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 14px;
+        content: '';
+        border-left: 1px solid $color-black;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__primary-text {
+    margin-right: 15px;
+  }
+
+  &__number {
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__content {
+    display: flex;
+    font-family: $fontset-jp;
+    font-size: 14px;
+    font-weight: xd-font-weight('regular');
+    line-height: 20px;
+  }
+}

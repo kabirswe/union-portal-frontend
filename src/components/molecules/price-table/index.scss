@@ -1,0 +1,66 @@
+.m-price-table {
+  &__item {
+    $item: &;
+
+    display: flex;
+    justify-content: space-between;
+
+    &--total {
+      margin-bottom: 12px;
+    }
+
+    &-label {
+      display: flex;
+      align-items: flex-start;
+      font-size: 14px;
+      line-height: 20px;
+
+      #{$item}--total & {
+        align-items: center;
+      }
+    }
+
+    &-detail {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 20px;
+      &:not(:first-child) {
+        margin-top: 9px;
+      }
+
+      &-label {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      &-value {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: flex-end;
+        width: 112px;
+
+        .a-price {
+          line-height: 20px;
+        }
+      }
+    }
+
+    &-value {
+      display: flex;
+      flex: 0 0 200px;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .a-price {
+        line-height: 20px;
+      }
+
+      #{$item}--total & {
+        align-items: flex-end;
+        justify-content: center;
+      }
+    }
+  }
+}

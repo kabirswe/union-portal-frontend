@@ -1,0 +1,15 @@
+.a-date-range-field {
+  display: flex;
+  .a-calendar-field {
+    flex: 1;
+  }
+  &__line {
+    display: flex;
+    flex: 0 0 12px;
+    align-items: center;
+    margin: 0 4px;
+    @include pc {
+      margin: 0 12px;
+    }
+  }
+}

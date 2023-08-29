@@ -1,0 +1,13 @@
+[build]
+command = "yarn build"
+publish = "build"
+
+[build.environment]
+NODE_VERSION = "14.17.3"
+YARN_VERSION = "1.22.10"
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+Basic-Auth = "4D:@30n1b1$"

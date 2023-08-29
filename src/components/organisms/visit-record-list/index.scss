@@ -1,0 +1,13 @@
+.o-visit-record-list {
+  &__add-button {
+    margin-top: 15px;
+  }
+
+  .m-visit-record-input {
+    margin-top: 16px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

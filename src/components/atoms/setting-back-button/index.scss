@@ -1,0 +1,29 @@
+.a-setting-back-button {
+  $root: &;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $fontset-jp;
+  font-size: 14px;
+  font-weight: xd-font-weight('medium');
+  line-height: 20px;
+  color: $color-text-white;
+  cursor: pointer;
+  background-color: $color-primary-grey;
+
+  & > .a-icon {
+    margin-right: 4px;
+  }
+
+  &:hover {
+    color: rgba($color-text-white, 60%);
+    & > .a-icon {
+      opacity: 0.6;
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+  }
+}

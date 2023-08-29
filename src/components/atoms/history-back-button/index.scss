@@ -1,0 +1,17 @@
+.a-history-back-button {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: xd-font-weight('bold');
+  line-height: 20px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .a-icon {
+    margin-right: 8px;
+  }
+}

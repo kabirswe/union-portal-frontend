@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="64" viewBox="0 0 375 64">
+  <g id="tabmenu" transform="translate(0 -748)">
+    <path id="Path_41735" data-name="Path 41735" d="M0,0H375V64H0Z" transform="translate(0 748)" fill="#f4f2f4"/>
+    <g id="Group_26466" data-name="Group 26466">
+      <g id="グループ_25946" data-name="グループ 25946" transform="translate(99.896 757)">
+        <rect id="長方形_23333" data-name="長方形 23333" width="28" height="28" transform="translate(-66.897)" fill="none"/>
+        <g id="グループ_25946-2" data-name="グループ 25946-2">
+          <line id="線_4785" data-name="線 4785" y2="5.617" transform="translate(-52.597 10.645)" fill="none" stroke="#7c6e80" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+          <circle id="Ellipse_2714" data-name="Ellipse 2714" cx="1.5" cy="1.5" r="1.5" transform="translate(-54.096 18.602)" fill="#7c6e80"/>
+        </g>
+        <path id="Path_41683" data-name="Path 41683" d="M-54.629,3.588-64.921,21.415a2,2,0,0,0,1.732,3H-42.6a2,2,0,0,0,1.732-3L-51.165,3.588A2,2,0,0,0-54.629,3.588Z" fill="none" stroke="#7c6e80" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+      </g>
+      <rect id="Rectangle_23647" data-name="Rectangle 23647" width="93.75" height="64" transform="translate(0 748)" fill="none"/>
+      <text id="安否確認" transform="translate(25 800)" fill="#7c6e80" font-size="11" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">安否確認</tspan></text>
+    </g>
+    <g id="Group_26467" data-name="Group 26467" transform="translate(93.75)">
+      <rect id="Rectangle_23647-2" data-name="Rectangle 23647" width="93.75" height="64" transform="translate(0.25 748)" fill="none"/>
+      <text id="人事関連" transform="translate(47.25 800)" fill="#7c6e80" font-size="11" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="-22" y="0">人事関連</tspan></text>
+      <g id="Group_26470" data-name="Group 26470" transform="translate(33.25 757.086)">
+        <g id="Group_26005" data-name="Group 26005" transform="translate(2.106 2.837)">
+          <ellipse id="楕円形_312" data-name="楕円形 312" cx="3.413" cy="3.413" rx="3.413" ry="3.413" transform="translate(1.587)" fill="none" stroke="#7c6e80" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+          <ellipse id="楕円形_312-2" data-name="楕円形 312" cx="3.413" cy="3.413" rx="3.413" ry="3.413" transform="translate(15.587)" fill="none" stroke="#7c6e80" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+          <path id="Path_41676" data-name="Path 41676" d="M2,176.25v-7.5a4,4,0,0,1,4-4H8a4,4,0,0,1,4,4v7.5" transform="translate(-2 -153.923)" fill="none" stroke="#7c6e80" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+          <path id="Path_41677" data-name="Path 41677" d="M16,176.25v-7.5a4,4,0,0,1,4-4h2a4,4,0,0,1,4,4v7.5" transform="translate(-2 -153.923)" fill="none" stroke="#7c6e80" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+        </g>
+        <rect id="Rectangle_23364" data-name="Rectangle 23364" width="28" height="27.913" transform="translate(0 0)" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_26468" data-name="Group 26468" transform="translate(187.5)">
+      <rect id="Rectangle_23647-3" data-name="Rectangle 23647" width="93.75" height="64" transform="translate(0 748)" fill="none"/>
+      <text id="勤怠関連" transform="translate(47 800)" fill="#7c6e80" font-size="11" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="-22" y="0">勤怠関連</tspan></text>
+      <g id="Group_26471" data-name="Group 26471" transform="translate(33.5 757.019)">
+        <g id="グループ_24169" data-name="グループ 24169" transform="translate(0 -0.019)">
+          <rect id="長方形_20677" data-name="長方形 20677" width="28" height="28" transform="translate(0)" fill="none"/>
+          <g id="グループ_25688" data-name="グループ 25688" transform="translate(0 0.046)">
+            <g id="グループ_25688-2" data-name="グループ 25688-2" transform="translate(7.605 1.955)">
+              <path id="パス_41562" data-name="パス 41562" d="M9.912,45.1a1.24,1.24,0,0,0-1.754,1.754h0l4.953,4.953a1.241,1.241,0,0,0,.877.363h0a1.24,1.24,0,0,0,.879-.368l3.641-3.678,8.421-8.507a1.241,1.241,0,1,0-1.763-1.746l-11.184,11.3Z" transform="translate(-7.795 -37.501)" fill="#7c6e80" stroke="#7c6e80" stroke-width="0.3"/>
+            </g>
+            <g id="グループ_25689" data-name="グループ 25689">
+              <path id="パス_41563" data-name="パス 41563" d="M26.566,42.927,24.723,44.79a11.358,11.358,0,0,1,.962,3.58h-1.8a1.238,1.238,0,0,0,0,2.476h1.775a11.441,11.441,0,0,1-10.1,10.008V59.049a1.24,1.24,0,1,0-2.481,0v1.806A11.44,11.44,0,0,1,2.99,50.846H4.766a1.238,1.238,0,0,0,0-2.476h-1.8a11.436,11.436,0,0,1,10.12-10.215v1.772a1.24,1.24,0,0,0,2.481,0V38.157A11.336,11.336,0,0,1,20.7,40.041l1.769-1.788a13.816,13.816,0,0,0-8.148-2.645h0a13.906,13.906,0,1,0,12.241,7.326Z" transform="translate(-0.414 -35.607)" fill="#7c6e80" stroke="#7c6e80" stroke-width="0.3"/>
+            </g>
+          </g>
+        </g>
+        <rect id="Rectangle_23362" data-name="Rectangle 23362" width="28" height="28" transform="translate(0 -0.019)" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_26469" data-name="Group 26469" transform="translate(281.5)">
+      <rect id="Rectangle_23647-4" data-name="Rectangle 23647" width="93.75" height="64" transform="translate(-0.25 748)" fill="none"/>
+      <text id="出張申請" transform="translate(46.75 800)" fill="#7c6e80" font-size="11" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="-22" y="0">出張申請</tspan></text>
+      <g id="Group_26472" data-name="Group 26472" transform="translate(33 757.129)">
+        <g id="Group_26473" data-name="Group 26473" transform="translate(-0.25 0.448)">
+          <path id="Path_41670" data-name="Path 41670" d="M19.3,94.028v2.439H3.056v-22.2H19.3V77.4l2.382-2.84c.026-.031.058-.053.084-.082V73.033A1.233,1.233,0,0,0,20.538,71.8H1.822A1.234,1.234,0,0,0,.588,73.033V97.7a1.234,1.234,0,0,0,1.234,1.233H20.538A1.233,1.233,0,0,0,21.771,97.7V91.088Z" transform="translate(-0.588 -71.8)" fill="#7c6e80"/>
+          <path id="Path_41671" data-name="Path 41671" d="M16.317,79.058H5.783a1.233,1.233,0,1,1,0-2.467H16.317a1.233,1.233,0,0,1,0,2.467Z" transform="translate(-0.479 -71.667)" fill="#7c6e80"/>
+          <path id="Path_41672" data-name="Path 41672" d="M13.234,84.058H5.783a1.233,1.233,0,1,1,0-2.467h7.451a1.233,1.233,0,0,1,0,2.467Z" transform="translate(-0.479 -71.528)" fill="#7c6e80"/>
+          <path id="Path_41673" data-name="Path 41673" d="M10.151,89.058H5.783a1.233,1.233,0,1,1,0-2.467h4.368a1.233,1.233,0,0,1,0,2.467Z" transform="translate(-0.479 -71.389)" fill="#7c6e80"/>
+          <path id="Path_41674" data-name="Path 41674" d="M8.1,94.058H5.783a1.233,1.233,0,1,1,0-2.467H8.1a1.233,1.233,0,0,1,0,2.467Z" transform="translate(-0.479 -71.25)" fill="#7c6e80"/>
+          <path id="Path_41675" data-name="Path 41675" d="M12.92,94.091a1.235,1.235,0,0,1-1.226-1.369l.408-3.684a1.24,1.24,0,0,1,.281-.658l10.569-12.6a1.235,1.235,0,0,1,1.738-.151l3.15,2.642a1.234,1.234,0,0,1,.152,1.738l-10.57,12.6a1.23,1.23,0,0,1-.6.39L13.267,94.04A1.212,1.212,0,0,1,12.92,94.091Zm3.557-2.274h0Zm-1.964-2.136-.163,1.474,1.422-.417,9.537-11.366-1.26-1.058Z" transform="translate(-0.28 -71.702)" fill="#7c6e80"/>
+        </g>
+        <rect id="Rectangle_23363" data-name="Rectangle 23363" width="27.89" height="27.89" transform="translate(-0.25 -0.018)" fill="none"/>
+      </g>
+    </g>
+    <rect id="Rectangle_23648" data-name="Rectangle 23648" width="375" transform="translate(0 748)"/>
+  </g>
+</svg>

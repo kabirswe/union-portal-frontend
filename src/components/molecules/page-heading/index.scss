@@ -1,0 +1,19 @@
+.m-page-heading {
+  display: flex;
+  justify-content: space-between;
+  height: 44px;
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    & > * {
+      min-width: 94px;
+      margin-left: 8px;
+
+      @include sp() {
+        margin-left: 12px;
+      }
+    }
+  }
+}

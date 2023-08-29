@@ -1,0 +1,47 @@
+.a-approval-status-item {
+  display: flex;
+
+  &__icon-status {
+    z-index: 1;
+    align-self: center;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 7px 13px 14px 13px;
+    margin-left: 11px;
+    font-family: $fontset-jp;
+    border: 3px solid $color-grey-3;
+    border-radius: 12px;
+  }
+
+  &__title {
+    display: block;
+    font-size: 16px;
+    font-weight: xd-font-weight('bold');
+    line-height: 24px;
+  }
+
+  &__time {
+    display: block;
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 17px;
+    color: $color-primary-grey;
+  }
+
+  &__reference {
+    margin-top: 12px;
+    font-family: $fontset-jp;
+    font-size: 14px;
+    line-height: 20px;
+
+    &--requester {
+      &::after {
+        content: '(あなた)';
+      }
+    }
+  }
+}

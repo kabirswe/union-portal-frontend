@@ -1,0 +1,40 @@
+.m-approval-status-list {
+  &__item {
+    position: relative;
+    z-index: 1;
+    padding: 8px 0;
+    list-style: none;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 16px;
+      z-index: 0;
+      width: 1px;
+      height: 100%;
+      content: '';
+      background-color: $color-grey-2;
+    }
+
+    &:first-child {
+      padding-top: 0;
+      &::after {
+        top: 50%;
+        height: 50%;
+      }
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+      &::after {
+        height: 50%;
+      }
+    }
+
+    .a-icon--status-a,
+    .a-icon--status-b {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

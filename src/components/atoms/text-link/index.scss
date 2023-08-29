@@ -1,0 +1,20 @@
+.a-text-link {
+  font-size: 14px;
+  font-weight: xd-font-weight('regular');
+  line-height: 20px;
+  color: $color-primary-purple;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &--underline {
+    text-decoration: underline;
+  }
+
+  &--disabled {
+    color: $color-grey-2;
+    pointer-events: none;
+  }
+}

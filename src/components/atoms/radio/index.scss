@@ -1,0 +1,139 @@
+.a-radio {
+  $root: &;
+
+  position: relative;
+  display: block;
+  background-color: $color-base-white;
+  border-radius: 12px;
+
+  &--grey {
+    background-color: $color-base-whitesmoke;
+  }
+
+  &__input {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &__body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-height: 44px;
+    padding: 10px 16px 10px 12px;
+    cursor: pointer;
+    background-position: 100%;
+    border-radius: 12px;
+    outline: none;
+    box-shadow: 0 4px 4px rgba($color-base-silver, 40%);
+    transition: all 0.25s;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      content: '';
+      border-radius: 12px;
+      opacity: 0;
+      transition: all 0.5s;
+
+      #{$root}--disabled & {
+        background: $color-grey-2;
+        opacity: 1;
+      }
+    }
+
+    small {
+      font-size: 12px;
+    }
+
+    #{$root}__input:checked + & {
+      box-shadow: none;
+      transition: all 0.25s;
+
+      &::after {
+        background: $color-primary-purple-gradient;
+        background: $color-primary-purple-gradient-ms;
+        opacity: 1;
+
+        #{$root}--disabled & {
+          background: $color-grey-2;
+        }
+      }
+    }
+
+    #{$root}__input:disabled + & {
+      pointer-events: none;
+      box-shadow: none;
+
+      &::after {
+        background: $color-grey-2;
+      }
+    }
+
+    #{$root}--invalid & {
+      background-color: $color-base-whitesmoke;
+      border: 1px solid $color-primary-red;
+    }
+  }
+
+  &__indicator {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 0 0 20px;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: $color-base-white;
+    border: 1px solid $color-grey-1;
+    border-radius: 50%;
+
+    #{$root}__input:checked + #{$root}__body & {
+      border-color: transparent;
+
+      &::before {
+        display: block;
+        width: 10px;
+        height: 10px;
+        content: '';
+        background-color: $color-primary-purple;
+        border-radius: 50%;
+
+        #{$root}--disabled & {
+          display: none;
+          background-color: $color-grey-2;
+        }
+      }
+    }
+
+    #{$root}--disabled & {
+      border-color: transparent;
+    }
+  }
+
+  &__label {
+    position: relative;
+    z-index: 1;
+    margin-left: 8px;
+    font-size: 16px;
+    font-weight: xd-font-weight('regular');
+    line-height: 24px;
+    color: $color-text-black;
+
+    #{$root}__input:checked + #{$root}__body & {
+      font-weight: xd-font-weight('bold');
+      color: $color-text-white;
+    }
+
+    #{$root}--disabled & {
+      color: $color-text-white;
+    }
+  }
+}

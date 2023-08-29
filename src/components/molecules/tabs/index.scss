@@ -1,0 +1,69 @@
+.m-tabs {
+  $tab-item-width: 98px;
+  $tab-item-width-sp: 80px;
+  $tab-item-margin: 16px;
+
+  --active-index: 0;
+  --width: auto;
+
+  &__tab-list {
+    display: flex;
+    border-bottom: 1px solid $color-grey-3;
+  }
+
+  &__tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $tab-item-width;
+    padding: 13px 0;
+    margin-right: $tab-item-margin;
+    text-align: center;
+    cursor: pointer;
+
+    @include sp() {
+      min-width: $tab-item-width-sp;
+      margin-right: 0;
+    }
+  }
+
+  &__indicator {
+    position: relative;
+    height: 4px;
+    border-radius: 2px;
+
+    &::after {
+      position: absolute;
+      bottom: 4px;
+      left: calc((var(--width, #{$tab-item-width}) + #{$tab-item-margin}) * var(--active-index));
+      // width: $tab-item-width;
+      width: var(--width, #{$tab-item-width});
+      height: 4px;
+      content: '';
+      background: $color-primary-purple-gradient;
+      background: $color-primary-purple-gradient-ms;
+      border-radius: 2px;
+      transition-duration: 0.3s;
+      transition-property: left;
+
+      @include sp() {
+        left: calc(var(--width, #{$tab-item-width-sp}) * var(--active-index));
+        // width: $tab-item-width-sp;
+        width: var(--width, #{$tab-item-width-sp});
+      }
+    }
+  }
+
+  &__content {
+    display: none;
+    margin-top: 24px;
+
+    @include sp() {
+      margin-top: 20px;
+    }
+
+    &--active {
+      display: block;
+    }
+  }
+}

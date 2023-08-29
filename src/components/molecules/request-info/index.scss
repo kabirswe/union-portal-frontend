@@ -1,0 +1,127 @@
+.m-request-info {
+  $root: &;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 316px;
+  height: 151px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: $fontset-jp;
+  color: $color-text-black;
+  cursor: pointer;
+  background: rgba($color-base-white, 80%);
+  border-top-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 24px;
+  box-shadow: 0 8px 24px rgba($color-base-black, 5%);
+  transition: box-shadow 0.25s, max-width 0.25s;
+  backdrop-filter: blur(3px) brightness(1);
+
+  @include sp() {
+    width: 100%;
+  }
+
+  &:hover {
+    box-shadow: 0 32px 64px rgba($color-base-black, 10%);
+  }
+
+  &--buttons {
+    position: relative;
+    height: auto;
+    min-height: 151px;
+    padding-bottom: 12px;
+    // cursor: default;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 116px;
+  }
+
+  &__status {
+    display: flex;
+    flex: 0 0 80px;
+    align-items: center;
+    justify-content: center;
+    height: 111px;
+    border-right: 1px solid $color-grey-3;
+
+    @include sp() {
+      flex: 0 0 93px;
+    }
+  }
+
+  &__detail {
+    width: calc(100% - 80px);
+    padding-right: 12px;
+    padding-left: 12px;
+
+    @include sp() {
+      width: calc(100% - 93px);
+    }
+
+    &-title {
+      margin-top: -4px;
+      font-size: 16px;
+      font-weight: xd-font-weight('bold');
+      line-height: 24px;
+      text-align: left;
+      transition: color 0.25s;
+
+      #{$root}:hover & {
+        color: $color-primary-purple;
+      }
+
+      /* #{$root}--buttons & {
+        color: $color-text-black !important;
+      } */
+    }
+    &-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 6px;
+
+      .a-request-info-item {
+        width: 100%;
+        // max-width: 212px;
+
+        @include sp() {
+          // min-width: 212px;
+          // max-width: calc(100% - 90px);
+        }
+      }
+    }
+  }
+
+  &__action {
+    width: 100%;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-top: 15px;
+  }
+
+  &--with-duplicate {
+    padding-bottom: 0;
+    #{$root}__action {
+      width: 100%;
+      padding: 13px 12px 15px;
+      margin-top: 11px;
+      border-top: 1px solid $color-grey-3;
+
+      &:hover {
+        .a-button {
+          text-decoration: underline;
+        }
+      }
+
+      @include sp {
+        padding: 11px 12px 13px;
+      }
+    }
+  }
+}

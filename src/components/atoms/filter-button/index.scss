@@ -1,0 +1,10 @@
+.a-filter-button {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+
+  &--disabled {
+    display: inline-block;
+    cursor: not-allowed;
+  }
+}

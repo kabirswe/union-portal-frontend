@@ -1,0 +1,35 @@
+.m-dnd-list-item {
+  @include card-info;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: default;
+  user-select: none;
+  background: $color-base-white;
+  border-bottom: 1px solid $color-grey-3;
+  border-radius: 0;
+
+  &__title {
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+    font-family: $fontset-jp;
+    font-size: 15px;
+    line-height: 24px;
+    color: $color-black;
+  }
+
+  &--dragging {
+    background: $color-grey-4;
+  }
+
+  .a-icon--delete-item {
+    cursor: pointer;
+  }
+
+  .a-icon--navbar {
+    cursor: move;
+  }
+}

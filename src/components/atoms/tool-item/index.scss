@@ -1,0 +1,26 @@
+.a-tool-item {
+  $root: &;
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $color-text-black;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__label {
+    width: 100%;
+    max-width: 56px;
+    margin-top: 6px;
+    font-family: $fontset-jp;
+    font-size: 12px;
+    font-weight: xd-font-weight('regular');
+    line-height: 16px;
+    text-align: center;
+  }
+}

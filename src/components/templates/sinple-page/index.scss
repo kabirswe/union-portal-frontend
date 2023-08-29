@@ -1,0 +1,12 @@
+.t-simplepage {
+  position: relative;
+
+  &--v-center {
+    .o-whole__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 0 !important;
+    }
+  }
+}

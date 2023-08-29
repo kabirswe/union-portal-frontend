@@ -1,0 +1,11 @@
+.m-checkbox-list {
+  overflow: hidden;
+  background-color: $color-white;
+  border-radius: 6px;
+
+  .a-checkbox {
+    &:not(:first-child) {
+      border-top: 1px solid $color-grey-3;
+    }
+  }
+}

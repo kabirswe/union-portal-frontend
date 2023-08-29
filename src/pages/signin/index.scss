@@ -1,0 +1,18 @@
+.p-signin {
+  &__logo {
+    margin-bottom: 40px;
+    text-align: center;
+
+    @include sp() {
+      margin-bottom: 32px;
+    }
+
+    img {
+      width: 160px;
+
+      @include sp() {
+        width: 106px;
+      }
+    }
+  }
+}

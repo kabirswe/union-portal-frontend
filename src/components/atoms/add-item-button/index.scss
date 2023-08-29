@@ -1,0 +1,33 @@
+.a-add-item-button {
+  // padding-left: 8px;
+  font-family: $fontset-jp;
+  font-size: 16px;
+  font-weight: xd-font-weight('bold');
+  line-height: 24px;
+  cursor: pointer;
+  background: transparent;
+
+  &:hover {
+    color: $color-primary-purple;
+  }
+
+  & .a-icon {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  &--disabled {
+    color: $color-grey-2;
+    cursor: not-allowed;
+
+    &::before {
+      color: $color-grey-2;
+    }
+
+    &:hover {
+      color: $color-grey-2;
+    }
+  }
+}

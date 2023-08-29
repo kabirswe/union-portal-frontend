@@ -1,0 +1,20 @@
+@mixin appear-animation-standby {
+  &[data-appear-animation-triggered='false'],
+  [data-appear-animation-finished='false'] & {
+    @content;
+  }
+}
+
+[data-appear-animation-type='fade-in-up'] {
+  transition: all 0.67s cubic-bezier(0.33, 1, 0.68, 1) 0.1s;
+
+  @include appear-animation-standby {
+    opacity: 0;
+    transition: none;
+    transform: translateY(60px);
+  }
+
+  &[data-appear-animation-finished='true'] {
+    transition: unset;
+  }
+}

@@ -1,0 +1,128 @@
+.m-search-bar {
+  $root: &;
+
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+
+  &__button {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    display: inline-flex;
+    width: 152px;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.5s, 0.25s, 0s;
+    transition-duration: 0s, 0.5s, 0s;
+    transition-property: visibility, opacity, width;
+
+    @include sp() {
+      width: 40px;
+    }
+
+    .a-search-button {
+      padding-right: 18px;
+      padding-left: 14px;
+      transition: box-shadow 0.25s linear 0.5s;
+
+      &__label {
+        font-size: 14px;
+      }
+
+      @include sp() {
+        padding: 0;
+      }
+    }
+
+    #{$root}--opened & {
+      width: 0;
+      visibility: hidden;
+      opacity: 0;
+      transition-delay: 0.75s, 0.25s, 0.5s;
+      transition-duration: 0s, 0.25s, 0.25s;
+      transition-property: visibility, opacity, width;
+
+      .a-search-button {
+        box-shadow: 0 10px 16px rgba($color-base-lightgray, 0%);
+        transition: box-shadow 0.25s ease-in;
+      }
+    }
+  }
+
+  &__field {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    width: 152px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition-delay: 0.75s, 0s, 0.5s;
+    transition-duration: 0s, 0.5s, 0.25s;
+    transition-property: visibility, width, opacity;
+
+    @include sp() {
+      width: 40px;
+    }
+
+    #{$root}--opened & {
+      right: 0;
+      width: 351px;
+      overflow: inherit;
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0s, 0.25s, 0.25s;
+      transition-duration: 0s, 0.25s, 0.25s;
+      transition-property: visibility, width, opacity;
+
+      @include sp() {
+        width: 100%;
+      }
+    }
+  }
+
+  &__search-input {
+    width: 100%;
+    max-width: 295px;
+  }
+
+  &__input {
+    width: 100%;
+
+    .a-text-field__input {
+      background-color: $color-base-white;
+
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        display: none;
+      }
+    }
+  }
+
+  &__button-close {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    visibility: hidden;
+    background: transparent;
+    opacity: 0;
+    transition-delay: 0.25s, 0s, 0s, 0s;
+    transition-duration: 0s, 0.25s, 0.25s, 0.25s;
+    transition-property: visibility, opacity, width, padding;
+
+    #{$root}--opened & {
+      width: 56px;
+      padding-right: 16px;
+      padding-left: 16px;
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0s, 0s, 0s, 0s;
+      transition-duration: 0s, 0.25s, 0.25s, 0.25s;
+      transition-property: visibility, opacity, width, padding;
+    }
+  }
+}

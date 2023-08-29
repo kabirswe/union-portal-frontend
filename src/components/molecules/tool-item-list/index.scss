@@ -1,0 +1,23 @@
+.m-tool-item-list {
+  display: flex;
+
+  @include pc() {
+    flex-flow: wrap;
+    padding: 18px 6px;
+  }
+  @include sp() {
+    flex-flow: row;
+    padding: 12px 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  &__content {
+    flex: 0 0 25%;
+    @include pc() {
+      &:not(:nth-child(-n + 4)) {
+        margin-top: 24px;
+      }
+    }
+  }
+}

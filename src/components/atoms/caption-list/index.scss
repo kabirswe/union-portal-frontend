@@ -1,0 +1,19 @@
+.a-caption-list {
+  font-size: 12px;
+  font-weight: xd-font-weight('light');
+  line-height: normal;
+  color: $color-text-gray;
+
+  li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 9px;
+    list-style: none;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      content: '※';
+    }
+  }
+}

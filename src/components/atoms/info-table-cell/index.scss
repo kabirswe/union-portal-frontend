@@ -1,0 +1,45 @@
+.a-info-table-cell {
+  $root: &;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  &__header {
+    padding-bottom: 10px;
+    padding-left: 16px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    color: $color-primary-grey;
+    border-bottom: 1px solid $color-grey-3;
+  }
+
+  &__content {
+    width: 100%;
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 24px;
+
+    #{$root}--pair & {
+      display: flex;
+      align-items: center;
+      line-height: 17px;
+    }
+
+    .a-quota-info {
+      margin-top: 13px;
+    }
+  }
+
+  &__label {
+    flex: 0 0 50%;
+    min-width: 160px;
+    margin-right: 18px;
+    font-weight: xd-font-weight('bold');
+    line-height: 20px;
+    color: $color-primary-grey;
+  }
+}

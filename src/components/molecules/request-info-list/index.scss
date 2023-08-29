@@ -1,0 +1,13 @@
+.m-request-info-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  .m-request-info {
+    margin-right: 16px;
+    margin-bottom: 24px;
+
+    @include sp() {
+      margin-right: 0;
+    }
+  }
+}

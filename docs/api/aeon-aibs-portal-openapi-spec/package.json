@@ -1,0 +1,14 @@
+{
+  "name": "aeon-aibs-portal-openapi-spec",
+  "version": "1.0.0",
+  "repository": "https://github.com/fourdigit/aeon-aibs-portal-openapi-spec.git",
+  "author": "Takuya Abe <t.abe@4digit.jp>",
+  "license": "Private",
+  "scripts": {
+    "start": "redoc-cli serve ./reference/cosmos2.yaml --watch",
+    "build": "redoc-cli bundle -o ./build/index.html ./reference/cosmos2.yaml"
+  },
+  "dependencies": {
+    "redoc-cli": "^0.12.2"
+  }
+}

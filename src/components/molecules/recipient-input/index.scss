@@ -1,0 +1,45 @@
+.m-recipient-input {
+  @mixin icon($name) {
+    background-image: url('~images/icons/#{$name}.svg');
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    max-width: 836px;
+    margin-top: 12px;
+
+    &:not(:first-child) {
+      margin-top: 12px;
+    }
+  }
+
+  &__input {
+    flex: 1;
+  }
+
+  &__remove-button {
+    flex: 0 0 20px;
+    margin-left: 16px;
+    button {
+      cursor: pointer;
+
+      @include pc {
+        &:hover {
+          .a-icon {
+            @include icon('close-hover');
+          }
+        }
+      }
+    }
+
+    &--hide {
+      pointer-events: none;
+      visibility: hidden;
+    }
+  }
+
+  &__add-button {
+    margin-top: 11px;
+  }
+}

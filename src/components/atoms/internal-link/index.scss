@@ -1,0 +1,20 @@
+.a-internal-link {
+  font-size: 14px;
+  font-weight: xd-font-weight('bold');
+  line-height: 20px;
+  cursor: pointer;
+
+  &--active {
+    color: $color-primary-purple;
+  }
+
+  &:hover {
+    color: $color-primary-purple;
+    text-decoration: none;
+  }
+
+  .a-icon {
+    margin-left: 4px;
+    transform: translate(0, -2px);
+  }
+}

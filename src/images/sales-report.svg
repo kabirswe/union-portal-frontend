@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="278" height="309" viewBox="0 0 278 309">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="225" height="11" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect width="28" height="136" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect width="239" height="133" fill="none"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e369c6"/>
+      <stop offset="1" stop-color="#b60081"/>
+    </linearGradient>
+  </defs>
+  <g id="グループ_26999" data-name="グループ 26999" transform="translate(-28 -74)">
+    <text id="売上" transform="translate(57 74)" fill="#373a44" font-size="13" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="28.5" y="15">売上</tspan></text>
+    <text id="比較" transform="translate(195 74)" fill="#373a44" font-size="13" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="28.5" y="15">比較</tspan></text>
+    <rect id="長方形_7579" data-name="長方形 7579" width="276" height="1" rx="0.5" transform="translate(29 111)" fill="#e8e9ed" style="mix-blend-mode: multiply;isolation: isolate"/>
+    <g id="図" transform="translate(28 232.808)">
+      <g id="グループ_25653" data-name="グループ 25653" transform="translate(58.014 16.46)">
+        <path id="パス_41530" data-name="パス 41530" d="M0,91H8v10.27H0Z" transform="translate(192 11.27)" fill="#ddd"/>
+        <path id="パス_41533" data-name="パス 41533" d="M0,0H8V10.27H0Z" transform="translate(160 102.27)" fill="#ddd"/>
+        <path id="パス_41530-2" data-name="パス 41530" d="M0,100H8v12.54H0Z" transform="translate(128)" fill="#ddd"/>
+        <path id="パス_41530-3" data-name="パス 41530" d="M0,92H8v20.54H0Z" transform="translate(96)" fill="#ddd"/>
+        <path id="パス_41530-4" data-name="パス 41530" d="M0,76.729H8V112.54H0Z" transform="translate(64)" fill="#ddd"/>
+        <path id="パス_41530-5" data-name="パス 41530" d="M0,30H8V88.189H0Z" transform="translate(32 24.351)" fill="#ddd"/>
+        <path id="パス_41530-6" data-name="パス 41530" d="M0,0H8V112.54H0Z" fill="#ddd"/>
+      </g>
+      <g id="グループ_25655" data-name="グループ 25655" transform="translate(59 8)">
+        <path id="パス_41534" data-name="パス 41534" d="M100.5,641.5l31.94-31.956,32.03-18.991,32-9.2,32.023-7.768h64" transform="translate(-97.486 -571)" fill="none" stroke="#b60081" stroke-width="2"/>
+        <circle id="楕円形_2695" data-name="楕円形 2695" cx="2.5" cy="2.5" r="2.5" transform="translate(192 0.192)" fill="#b60081"/>
+        <circle id="楕円形_2695-2" data-name="楕円形 2695" cx="2.5" cy="2.5" r="2.5" transform="translate(160 0.192)" fill="#b60081"/>
+        <circle id="楕円形_2695-3" data-name="楕円形 2695" cx="2.5" cy="2.5" r="2.5" transform="translate(128 0.192)" fill="#b60081"/>
+        <circle id="楕円形_2695-4" data-name="楕円形 2695" cx="2.5" cy="2.5" r="2.5" transform="translate(96 8.192)" fill="#b60081"/>
+        <circle id="楕円形_2695-5" data-name="楕円形 2695" cx="2.5" cy="2.5" r="2.5" transform="translate(64 17.192)" fill="#b60081"/>
+        <circle id="楕円形_2695-6" data-name="楕円形 2695" cx="2.5" cy="2.5" r="2.5" transform="translate(32 36.192)" fill="#b60081"/>
+        <circle id="楕円形_2695-7" data-name="楕円形 2695" cx="2.5" cy="2.5" r="2.5" transform="translate(0 68.192)" fill="#b60081"/>
+      </g>
+      <g id="リピートグリッド_3" data-name="リピートグリッド 3" transform="translate(53 139.192)" clip-path="url(#clip-path)">
+        <g transform="translate(-86 -710)">
+          <text id="_1" data-name="1" transform="translate(86 710)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="5.441" y="8">1</tspan></text>
+        </g>
+        <g transform="translate(-54 -710)">
+          <text id="_2" data-name="2" transform="translate(86 710)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="5.441" y="8">2</tspan></text>
+        </g>
+        <g transform="translate(-22 -710)">
+          <text id="_3" data-name="3" transform="translate(86 710)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="5.441" y="8">3</tspan></text>
+        </g>
+        <g transform="translate(10 -710)">
+          <text id="_4" data-name="4" transform="translate(86 710)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="5.441" y="8">4</tspan></text>
+        </g>
+        <g transform="translate(42 -710)">
+          <text id="_5" data-name="5" transform="translate(86 710)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="5.441" y="8">5</tspan></text>
+        </g>
+        <g transform="translate(74 -710)">
+          <text id="_6" data-name="6" transform="translate(86 710)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="5.441" y="8">6</tspan></text>
+        </g>
+        <g transform="translate(106 -710)">
+          <text id="_7" data-name="7" transform="translate(86 710)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="5.441" y="8">7</tspan></text>
+        </g>
+        <g transform="translate(138 -710)">
+          <text id="_12" data-name="12" transform="translate(86 710)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="2.382" y="8">12</tspan></text>
+        </g>
+      </g>
+      <g id="リピートグリッド_2" data-name="リピートグリッド 2" transform="translate(0 0.192)" clip-path="url(#clip-path-2)">
+        <g transform="translate(-40 -571)">
+          <text id="_6_000" data-name="6,000" transform="translate(40 571)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="0.473" y="8">6,000</tspan></text>
+        </g>
+        <g transform="translate(-40 -540)">
+          <text id="_4_500" data-name="4,500" transform="translate(40 571)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="0.473" y="8">4,500</tspan></text>
+        </g>
+        <g transform="translate(-40 -509)">
+          <text id="_3_000" data-name="3,000" transform="translate(40 571)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="0.473" y="8">3,000</tspan></text>
+        </g>
+        <g transform="translate(-40 -478)">
+          <text id="_1_500" data-name="1,500" transform="translate(40 571)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="0.473" y="8">1,500</tspan></text>
+        </g>
+        <g transform="translate(-40 -447)">
+          <text id="_0" data-name="0" transform="translate(40 571)" fill="#bab6ba" font-size="11" font-family="Helvetica"><tspan x="21.882" y="8">0</tspan></text>
+        </g>
+      </g>
+      <g id="リピートグリッド_1" data-name="リピートグリッド 1" transform="translate(37 4.192)" clip-path="url(#clip-path-3)">
+        <g transform="translate(-73 -575)">
+          <rect id="長方形_7579-2" data-name="長方形 7579" width="1" height="260" transform="translate(333 575) rotate(90)" fill="#e8e9ed" style="mix-blend-mode: multiply;isolation: isolate"/>
+          <rect id="長方形_23283" data-name="長方形 23283" width="1" height="260" transform="translate(333 606) rotate(90)" fill="#e8e9ed" style="mix-blend-mode: multiply;isolation: isolate"/>
+        </g>
+        <g transform="translate(-73 -513)">
+          <rect id="長方形_7579-3" data-name="長方形 7579" width="1" height="260" transform="translate(333 575) rotate(90)" fill="#e8e9ed" style="mix-blend-mode: multiply;isolation: isolate"/>
+          <rect id="長方形_23283-2" data-name="長方形 23283" width="1" height="260" transform="translate(333 606) rotate(90)" fill="#e8e9ed" style="mix-blend-mode: multiply;isolation: isolate"/>
+        </g>
+        <g transform="translate(-73 -451)">
+          <rect id="長方形_7579-4" data-name="長方形 7579" width="1" height="260" transform="translate(333 575) rotate(90)" fill="#e8e9ed" style="mix-blend-mode: multiply;isolation: isolate"/>
+          <rect id="長方形_23283-3" data-name="長方形 23283" width="1" height="260" transform="translate(333 606) rotate(90)" fill="#e8e9ed" style="mix-blend-mode: multiply;isolation: isolate"/>
+        </g>
+      </g>
+    </g>
+    <path id="パス_41701" data-name="パス 41701" d="M1.655,0H136.67a1.852,1.852,0,0,1,1.655,2,1.852,1.852,0,0,1-1.655,2H1.655A1.852,1.852,0,0,1,0,2,1.852,1.852,0,0,1,1.655,0Z" transform="translate(167 111.04)" fill="url(#linear-gradient)"/>
+    <g id="売上合計" transform="translate(88 135)">
+      <g id="グループ_25966" data-name="グループ 25966" transform="translate(-11 19)">
+        <text id="_1_018_086" data-name="1,018,086" transform="translate(19 31)" fill="#373a44" font-size="28" font-family="Helvetica"><tspan x="0" y="0">1,018,086</tspan></text>
+        <text id="円" transform="translate(149 16)" fill="#373a44" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="0" y="14">円</tspan></text>
+      </g>
+      <text id="売上合計-2" data-name="売上合計" transform="translate(79 14)" fill="#373a44" font-size="12" font-family="NotoSansCJKjp-Bold, Noto Sans CJK JP" font-weight="700"><tspan x="-24" y="0">売上合計</tspan></text>
+      <g id="グループ_25659" data-name="グループ 25659" transform="translate(22 62)">
+        <text id="目標" transform="translate(0 14)" fill="#373a44" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">目標</tspan></text>
+        <text id="円-2" data-name="円" transform="translate(101 14)" fill="#373a44" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">円</tspan></text>
+        <text id="_" data-name="：" transform="translate(23 14)" fill="#bab6ba" font-size="12" font-family="NotoSansCJKjp-Regular, Noto Sans CJK JP"><tspan x="0" y="0">：</tspan></text>
+        <text id="_2_200_000" data-name="2,200,000" transform="translate(35 0.892)" fill="#373a44" font-size="13" font-family="Helvetica"><tspan x="0" y="10">2,200,000</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

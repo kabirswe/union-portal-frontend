@@ -1,0 +1,12 @@
+// Display none at PC
+.u-dn-pc {
+  @include pc {
+    display: none;
+  }
+}
+
+.u-dn-sp {
+  @include sp {
+    display: none;
+  }
+}

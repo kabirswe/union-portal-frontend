@@ -1,0 +1,31 @@
+.a-edit-button {
+  display: inline-block;
+  padding-top: 14px;
+  font-size: 14px;
+  font-weight: xd-font-weight('bold');
+  line-height: 20px;
+  cursor: pointer;
+  border-top: 5px solid $color-secondary-grey;
+
+  .a-icon {
+    margin-left: 14px;
+    transform: translate(0, -2px);
+  }
+
+  @mixin item-selected($active-color) {
+    color: $active-color;
+    text-decoration: none;
+    border-top: 5px solid $active-color;
+    .a-icon {
+      background-image: url('~images/icons/apps-active.svg');
+    }
+  }
+
+  &--active {
+    @include item-selected($color-primary-purple);
+  }
+
+  &:hover {
+    @include item-selected($color-primary-purple);
+  }
+}

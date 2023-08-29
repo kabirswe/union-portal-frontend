@@ -1,0 +1,80 @@
+.m-form-field {
+  $allowed-column-size: 1, 2, 3, 4, 6, 12;
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    font-family: $fontset-jp;
+    font-size: 16px;
+    font-weight: xd-font-weight('bold');
+    line-height: 24px;
+
+    &-addons {
+      display: inline-flex;
+      margin-left: 8px;
+    }
+
+    &--normal {
+      font-weight: xd-font-weight('regular');
+    }
+  }
+
+  &__instruction {
+    margin-top: 8px;
+  }
+
+  &__content {
+    margin-top: 13px;
+  }
+
+  &__invalid-message {
+    margin-top: 12px;
+    line-height: 19px;
+    color: $color-primary-red;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -12px 0 0 -12px;
+
+    & > * {
+      flex: 0 0 calc(100% - 12px);
+      margin: 12px 0 0 12px;
+
+      @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+        flex: 0 0 98%;
+      }
+    }
+
+    @each $column-size in $allowed-column-size {
+      &--column-size-#{$column-size} > * {
+        @include sp() {
+          flex-basis: calc(#{column-size-division($column-size)} - 12px);
+          flex-grow: 0;
+          flex-shrink: 0;
+
+          @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+            flex-basis: column-size-division($column-size) - 1;
+            flex-grow: 0;
+            flex-shrink: 0;
+          }
+        }
+      }
+
+      &--column-size-pc-#{$column-size} > * {
+        @include pc() {
+          flex-basis: calc(#{column-size-division($column-size)} - 12px);
+          flex-grow: 0;
+          flex-shrink: 0;
+
+          @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+            flex-basis: column-size-division($column-size) - 1;
+            flex-grow: 0;
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.m-shortcut-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-float-button;
+  display: none;
+  width: 100%;
+  background: rgba($color-base-white, 80%);
+  backdrop-filter: blur(20px) brightness(1);
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+
+  @include sp() {
+    display: flex;
+    padding-right: 24px;
+    padding-left: 24px;
+
+    .a-nav-item {
+      $nav: &;
+
+      flex: 1;
+      font-size: 12px;
+      line-height: 18px;
+      color: $color-primary-grey;
+
+      &__link {
+        justify-content: center;
+
+        & > .a-nav-item__icon {
+          margin-right: 4px;
+        }
+        #{$nav}--selected & {
+          &::after {
+            display: none;
+          }
+        }
+      }
+
+      &__label {
+        font-weight: xd-font-weight('regular');
+      }
+
+      &--selected {
+        .a-nav-item__label {
+          font-weight: xd-font-weight('bold');
+        }
+      }
+    }
+  }
+}

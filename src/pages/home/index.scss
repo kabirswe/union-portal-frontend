@@ -1,0 +1,19 @@
+.p-home {
+  &__sales-report__image img,
+  &__communication-tool__image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__sales-report__image {
+    text-align: center;
+  }
+
+  &__my-menu {
+    .m-section__container .m-section {
+      @include sp() {
+        padding: 0;
+      }
+    }
+  }
+}

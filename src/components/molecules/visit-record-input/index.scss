@@ -1,0 +1,49 @@
+.m-visit-record-input {
+  background-color: $color-base-whitesmoke;
+  border-radius: 12px;
+  box-shadow: 0 4px 4px rgba($color-base-silver, 40%);
+
+  &__header {
+    position: relative;
+    padding: 10px 44px 10px 16px;
+    font-size: 14px;
+    font-weight: xd-font-weight('bold');
+    line-height: 20px;
+    color: $color-primary-grey;
+    border-bottom: 1px solid $color-grey-3;
+  }
+
+  &__button-close {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    cursor: pointer;
+
+    .a-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      .a-icon {
+        background-image: url('~images/icons/close-hover.svg');
+      }
+    }
+  }
+
+  &__body {
+    padding: 23px 16px 28px;
+
+    .m-form-field {
+      margin-top: 23px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .a-text-field__input {
+      background-color: $color-base-white;
+    }
+  }
+}

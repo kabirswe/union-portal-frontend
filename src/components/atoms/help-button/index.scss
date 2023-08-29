@@ -1,0 +1,48 @@
+.a-help-button {
+  $root: &;
+
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: $color-text-white;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba($color-base-lightgray, 80%);
+  transition: box-shadow 0.25s;
+
+  &--with-children {
+    justify-content: flex-start;
+    width: auto;
+    height: auto;
+    font-family: $fontset-jp;
+    font-size: 14px;
+    font-weight: normal;
+    color: #373a44;
+    text-align: left;
+    box-shadow: none;
+  }
+
+  &__children {
+    padding-left: 6px;
+  }
+
+  @mixin icon($name) {
+    background-image: url('~images/icons/#{$name}.svg');
+  }
+
+  &:hover {
+    .a-icon {
+      @include icon('help-hover');
+    }
+  }
+  &:active {
+    box-shadow: none;
+    .a-icon {
+      @include icon('help-active');
+    }
+  }
+}

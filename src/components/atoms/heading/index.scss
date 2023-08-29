@@ -1,0 +1,123 @@
+.a-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  $root: &;
+
+  &__label {
+    display: flex;
+    align-items: center;
+
+    > .a-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+  }
+
+  &__hide-label {
+    @include sp {
+      display: none;
+    }
+  }
+
+  &__text {
+    font-family: $fontset-jp;
+    font-size: 24px;
+    font-weight: xd-font-weight('bold');
+    line-height: 39px;
+
+    @include sp() {
+      font-size: 22px;
+      line-height: 33px;
+    }
+
+    #{$root}--tag-h1 & {
+      font-family: $fontset-jp;
+      font-size: 24px;
+      font-weight: xd-font-weight('bold');
+      line-height: 39px;
+
+      @include sp() {
+        font-size: 22px;
+        line-height: 33px;
+      }
+    }
+    #{$root}--tag-h2 & {
+      position: relative;
+      font-family: $fontset-jp;
+      font-size: 20px;
+      font-weight: xd-font-weight('bold');
+      line-height: 29px;
+      border: 0;
+    }
+    #{$root}--tag-h2#{$root}--btag & {
+      position: relative;
+      padding-bottom: 12px;
+      border-bottom: 1px solid $color-secondary-grey;
+      &::before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        content: '';
+        background: $color-grey-3;
+      }
+    }
+
+    #{$root}--tag-h3 & {
+      position: relative;
+      font-family: $fontset-jp;
+      font-size: 18px;
+      font-weight: xd-font-weight('bold');
+      line-height: 27px;
+    }
+    #{$root}--tag-h3#{$root}--btag & {
+      padding-left: 15px;
+      &::before {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        display: block;
+        width: 6px;
+        height: calc(100% - 7px);
+        margin-right: 8px;
+        content: '';
+        background: $color-primary-purple-v-gradient;
+        background: $color-primary-purple-v-gradient-ms;
+        border-radius: 2px;
+      }
+    }
+    #{$root}--tag-h4 & {
+      position: relative;
+      font-family: $fontset-jp;
+      font-size: 16px;
+      font-weight: xd-font-weight('bold');
+      line-height: 24px;
+    }
+    #{$root}--tag-h4#{$root}--btag & {
+      padding-left: 15px;
+      &::before {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        display: block;
+        width: 6px;
+        height: calc(100% - 7px);
+        margin-right: 8px;
+        content: '';
+        background: $color-primary-grey-v-gradient;
+        background: $color-primary-grey-v-gradient-ms;
+        border-radius: 2px;
+      }
+    }
+    #{$root}--tag-h5 & {
+      font-family: $fontset-jp;
+      font-size: 16px;
+      font-weight: xd-font-weight('bold');
+      line-height: 24px;
+    }
+  }
+}

@@ -1,0 +1,337 @@
+.m-data-table {
+  $root: &;
+
+  border-radius: 24px;
+
+  @include pc {
+    // min-width: 1300px;
+    overflow-x: auto;
+    box-shadow: 0 8px 24px rgba($color-base-lightgray, 40%);
+  }
+
+  &__container {
+    display: table;
+    width: 100%;
+    // min-width: 1200px;
+    height: 48px;
+    overflow: auto;
+    border-collapse: collapse;
+    background: $color-base-white;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(216, 202, 215, 0.4);
+
+    .a-table-action-button {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    @include sp() {
+      display: none;
+    }
+  }
+
+  &__container-item {
+    display: table-row-group;
+  }
+
+  &__container-card {
+    display: flex;
+    flex-direction: column;
+
+    @include pc() {
+      display: none;
+    }
+  }
+
+  &__header {
+    display: table-header-group;
+  }
+
+  &__header-content {
+    display: table-cell;
+    padding: 12px 32px 11px;
+    padding-top: 19px;
+    padding-bottom: 15px;
+    font-family: $fontset-jp;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    white-space: nowrap;
+    border-bottom: 2px solid $color-grey-3;
+
+    &--type-id,
+    &--type-action {
+      width: 60px;
+      padding-right: 0;
+      padding-left: 0;
+      text-align: center;
+    }
+
+    &:first-child {
+      padding-left: 20px;
+    }
+    &:last-child {
+      padding-right: 20px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: table-row;
+
+    @include pc {
+      &:not(:first-child) {
+        position: relative;
+
+        #{$root}__content {
+          position: relative;
+
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            content: '';
+            border-top: 1px solid $color-grey-3;
+          }
+
+          &:first-child {
+            &::after {
+              left: 20px;
+              width: calc(100% - 20px);
+            }
+          }
+
+          &:last-child {
+            &::after {
+              width: calc(100% - 20px);
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      #{$root}__content {
+        &--type-id,
+        &--type-data {
+          color: $color-primary-purple;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &__content {
+    display: table-cell;
+    height: 100%;
+    height: 72px;
+    padding-right: 32px;
+    padding-left: 32px;
+    vertical-align: middle;
+
+    @include pc() {
+      &:first-child {
+        padding-left: 20px;
+      }
+      &:last-child {
+        padding-right: 20px;
+      }
+    }
+
+    &--type-id,
+    &--type-action {
+      width: 60px;
+      padding-right: 0;
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+
+  &__truncate-content {
+    display: flex;
+    display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
+    overflow: hidden;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical; /* stylelint-disable-line property-no-vendor-prefix */
+    -webkit-line-clamp: 2;
+  }
+
+  &__card {
+    margin-bottom: 16px;
+    background-color: $color-base-white;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(216, 202, 215, 0.4);
+  }
+
+  &__card-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 72px;
+    padding: 13px 32px;
+
+    @include sp() {
+      height: 66px;
+      padding: 11px 20px;
+    }
+
+    &:not(:first-child) {
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 20px;
+        width: calc(100% - 40px);
+        height: 1px;
+        content: '';
+        background: $color-grey-3;
+      }
+    }
+
+    &--type-action {
+      justify-content: center;
+      border-top: 2px solid $color-grey-3;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    font-family: $font-inter;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 22px;
+    color: $color-text-black;
+    text-align: left;
+
+    @include sp() {
+      flex: 0 0 120px;
+      width: 120px;
+    }
+
+    &--type-action {
+      @include sp() {
+        display: none;
+      }
+    }
+  }
+
+  &__card-content {
+    display: flex;
+    display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
+    align-items: center;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; /* stylelint-disable-line property-no-vendor-prefix */
+
+    @include sp() {
+      height: auto;
+      line-height: 22px;
+    }
+
+    &--type-action {
+      @include sp() {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__card-action {
+    padding: 22px 0;
+    text-align: center;
+    border-top: 2px solid $color-grey-3;
+
+    @include pc {
+      padding: 18px 0;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    @include pc {
+      padding-left: 170px;
+    }
+  }
+
+  &__button-text {
+    position: relative;
+    padding-right: 70px;
+    font-family: $font-inter;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 22px;
+    color: $color-primary-purple;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+
+    @include pc {
+      padding-right: 16px;
+    }
+
+    &:not(:first-child) {
+      padding-right: 0;
+      padding-left: 70px;
+
+      &::before {
+        position: absolute;
+        top: -4px;
+        left: 0;
+        width: 1px;
+        height: 32px;
+        content: '';
+        background: $color-grey-3;
+      }
+
+      @include pc {
+        padding-left: 16px;
+
+        &::before {
+          position: absolute;
+          top: 3px;
+          left: 0;
+          width: 1px;
+          height: 16px;
+          content: '';
+          background: $color-grey-3;
+        }
+      }
+    }
+  }
+
+  &--with-action-buttons {
+    .m-data-table__content--type-action {
+      width: auto;
+      min-width: 120px;
+    }
+
+    .m-data-table__card-item--type-action {
+      .m-data-table__card-header {
+        display: none;
+      }
+
+      .m-data-table__card-content {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

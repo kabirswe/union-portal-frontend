@@ -1,0 +1,93 @@
+.m-upload-list {
+  $root: &;
+  $item: #{$root}__item;
+
+  &__label {
+    font-family: $fontset-jp;
+    font-size: 14px;
+    font-weight: xd-font-weight('bold');
+    line-height: 20px;
+    color: $color-primary-grey;
+  }
+
+  &__items {
+    margin-top: 6px;
+
+    #{$root}--column & {
+      @include pc() {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 11px 0;
+    border-bottom: 1px solid $color-grey-3;
+
+    #{$root}:not(#{$root}--column) & {
+      &:not(:first-child) {
+        margin-top: 6px;
+
+        @include sp() {
+          margin-top: 8px;
+        }
+      }
+    }
+
+    #{$root}--column & {
+      @include pc() {
+        width: calc(50% - 8px);
+
+        &:not(:nth-child(-n + 2)) {
+          margin-top: 6px;
+        }
+      }
+      @include sp() {
+        &:not(:first-child) {
+          margin-top: 8px;
+        }
+      }
+    }
+
+    &--fill {
+      padding: 11px 10px;
+      background-color: $color-grey-3;
+      border: none;
+      border-radius: 8px;
+    }
+  }
+
+  &__file {
+    font-family: $fontset-normal;
+    line-height: 20px;
+
+    #{$item}--fill & {
+      font-size: 12px;
+      color: $color-primary-purple;
+    }
+  }
+
+  &__file-size {
+    &::before {
+      content: ' (';
+    }
+    &::after {
+      content: ')';
+    }
+  }
+
+  &__button-remove {
+    padding: 5px;
+    margin: -5px;
+    cursor: pointer;
+
+    .a-icon--close {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

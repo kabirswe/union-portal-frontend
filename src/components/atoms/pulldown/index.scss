@@ -1,0 +1,99 @@
+.a-pulldown {
+  $root: &;
+  $choices: '.choices';
+
+  position: relative;
+  // max-width: 386px;
+
+  &__icon-container {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    z-index: 2;
+    font-size: 9px;
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+
+  #{$choices} {
+    margin: 0;
+
+    &::after {
+      display: none; // TODO: remove icon dropdown
+      content: none;
+      opacity: 0;
+    }
+
+    &[data-type*='select-one'] {
+      #{$choices}__inner {
+        padding: 9px 48px 9px 12px;
+      }
+    }
+
+    &__inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      font-family: $fontset-jp;
+      font-size: 16px;
+      line-height: 24px;
+      text-overflow: ellipsis;
+      background-color: $color-base-whitesmoke;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      outline: 0;
+      box-shadow: 0 4px 4px rgba($color-base-silver, 40%);
+      appearance: none;
+    }
+
+    &__list--dropdown {
+      top: 52px;
+      z-index: $zindex-popover;
+      background-color: $color-base-white;
+      border: none;
+      border-radius: 12px;
+      outline: 0;
+      box-shadow: 0 10px 16px rgba($color-base-lightgray, 40%);
+      #{$choices}__item--selectable {
+        padding: 9px 20px;
+      }
+    }
+
+    &__list--single {
+      padding: 0;
+    }
+  }
+  .is-focused > #{$choices}__inner {
+    border-color: $color-primary-purple;
+    border-radius: 12px;
+    outline: 0;
+    box-shadow: none;
+  }
+
+  .is-open > #{$choices}__inner {
+    border-radius: 12px;
+  }
+
+  .is-flipped > #{$choices}__list--dropdown {
+    top: auto;
+    bottom: calc(100% + 8px);
+  }
+
+  &--disabled {
+    & > .is-disabled > #{$choices}__inner {
+      color: $color-text-white;
+      background-color: $color-grey-2;
+      box-shadow: none;
+    }
+
+    #{$root}__icon-container {
+      .a-icon {
+        background-image: url('~images/icons/arrow-down-white.svg');
+      }
+    }
+  }
+
+  &--invalid > #{$choices} > #{$choices}__inner {
+    border: 1px solid $color-primary-red;
+  }
+}

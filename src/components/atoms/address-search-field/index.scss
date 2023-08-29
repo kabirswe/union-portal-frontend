@@ -1,0 +1,15 @@
+.a-address-search-field {
+  display: flex;
+
+  .a-text-field {
+    flex: 1 1 246px;
+  }
+
+  .a-button {
+    flex: 0 0 120px;
+    height: 44px;
+    margin-left: 20px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

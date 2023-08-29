@@ -1,0 +1,54 @@
+.a-user-account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $fontset-jp;
+  $root: &;
+
+  &--card {
+    flex-direction: unset;
+    justify-content: center;
+    padding: 0 16px;
+    border: 1px solid $color-grey-3;
+    border-radius: 6px;
+
+    #{$root}__container {
+      padding: 11px 0 10px 0;
+      margin-top: 0;
+      margin-left: 12px;
+      text-align: left;
+    }
+
+    #{$root}__companyinfo {
+      margin-top: 0;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__container {
+    margin-top: 9px;
+    color: $color-black;
+    text-align: center;
+  }
+
+  &__name {
+    font-size: 14px;
+    font-weight: xd-font-weight('bold');
+    white-space: nowrap;
+  }
+
+  &__companyinfo {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 17px;
+
+    @include sp() {
+      br {
+        display: none;
+      }
+    }
+  }
+}
