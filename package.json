@@ -1,8 +1,8 @@
 {
-  "name": "aeon-aibs-portal-frontend",
+  "name": "union-portal-frontend",
   "version": "0.0.0",
-  "description": "AEON IBS Portal Frontend",
-  "author": "FOURDIGIT inc",
+  "description": "UNION Portal Frontend",
+  "author": "JP inc",
   "license": "UNLICENSED",
   "engines": {
     "node": ">=14.0.0 <15.0.0",
